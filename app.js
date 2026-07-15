@@ -110,8 +110,16 @@ function levenshtein(a, b) {
 
 function buildDictionary() {
   const list = [];
-  FOODS.forEach((f) => f.aliases.forEach((a) => list.push({ type: 'food', entry: f, alias: a, normAlias: normalize(a) })));
-  EXERCISES.forEach((e) => e.aliases.forEach((a) => list.push({ type: 'exercise', entry: e, alias: a, normAlias: normalize(a) })));
+  // 候補チップ選択時はentry.name(スペース等を含む正式名称)がそのまま入力欄に入るため、
+  // aliasesだけでなくname自体も登録しないと、送信時に正式名称が別の短いaliasに分割一致してしまう。
+  FOODS.forEach((f) => {
+    list.push({ type: 'food', entry: f, alias: f.name, normAlias: normalize(f.name) });
+    f.aliases.forEach((a) => list.push({ type: 'food', entry: f, alias: a, normAlias: normalize(a) }));
+  });
+  EXERCISES.forEach((e) => {
+    list.push({ type: 'exercise', entry: e, alias: e.name, normAlias: normalize(e.name) });
+    e.aliases.forEach((a) => list.push({ type: 'exercise', entry: e, alias: a, normAlias: normalize(a) }));
+  });
   list.sort((a, b) => b.alias.length - a.alias.length);
   return list;
 }
