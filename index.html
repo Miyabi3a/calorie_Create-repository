@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カロリー記録チャット</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="phone">
+    <header>
+      <button id="menuBtn" class="icon-btn" aria-label="メニュー">☰</button>
+      <button id="dateTitle" class="date-title">今日 <span class="chev">▾</span></button>
+      <div id="menuDropdown" class="menu-dropdown">
+        <button id="editProfileBtn">プロフィールを編集</button>
+      </div>
+    </header>
+
+    <div class="week-strip-row">
+      <button id="weekPrev" class="week-nav" aria-label="前の週">‹</button>
+      <div id="dateStrip" class="date-strip"></div>
+      <button id="weekNext" class="week-nav" aria-label="次の週">›</button>
+    </div>
+
+    <main id="scrollArea">
+      <div class="calorie-card">
+        <div class="calorie-card-title">🔥 カロリー</div>
+        <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+        <div class="calorie-stats">
+          <div class="stat"><span class="stat-label">食事</span><span class="stat-value" id="intakeTotal">0</span></div>
+          <div class="stat"><span class="stat-label">運動</span><span class="stat-value" id="burnTotal">0</span></div>
+          <div class="stat"><span class="stat-label">残り</span><span class="stat-value strong" id="remainingTotal">0</span></div>
+        </div>
+        <div class="pfc-section">
+          <div class="pfc-section-title">PFCバランス</div>
+          <div class="pfc-circles">
+            <div class="pfc-circle-item" data-macro="protein">
+              <div class="pfc-ring-wrap">
+                <svg class="pfc-ring" viewBox="0 0 44 44">
+                  <circle class="pfc-ring-track" cx="22" cy="22" r="18"></circle>
+                  <circle class="pfc-ring-fill" id="pfcRingProtein" cx="22" cy="22" r="18"></circle>
+                </svg>
+                <span class="pfc-ring-center">P</span>
+              </div>
+              <div class="pfc-circle-label">たんぱく質</div>
+              <div class="pfc-circle-value" id="pfcValueProtein">0 / 0g</div>
+            </div>
+            <div class="pfc-circle-item" data-macro="fat">
+              <div class="pfc-ring-wrap">
+                <svg class="pfc-ring" viewBox="0 0 44 44">
+                  <circle class="pfc-ring-track" cx="22" cy="22" r="18"></circle>
+                  <circle class="pfc-ring-fill" id="pfcRingFat" cx="22" cy="22" r="18"></circle>
+                </svg>
+                <span class="pfc-ring-center">F</span>
+              </div>
+              <div class="pfc-circle-label">脂質</div>
+              <div class="pfc-circle-value" id="pfcValueFat">0 / 0g</div>
+            </div>
+            <div class="pfc-circle-item" data-macro="carbs">
+              <div class="pfc-ring-wrap">
+                <svg class="pfc-ring" viewBox="0 0 44 44">
+                  <circle class="pfc-ring-track" cx="22" cy="22" r="18"></circle>
+                  <circle class="pfc-ring-fill" id="pfcRingCarbs" cx="22" cy="22" r="18"></circle>
+                </svg>
+                <span class="pfc-ring-center">C</span>
+              </div>
+              <div class="pfc-circle-label">炭水化物</div>
+              <div class="pfc-circle-value" id="pfcValueCarbs">0 / 0g</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="feed" class="feed"></div>
+    </main>
+
+    <div id="historyPanel" class="history-panel">
+      <div id="historySections">
+        <div class="history-section">
+          <div class="history-label">最近の食事</div>
+          <div id="foodHistoryChips" class="history-chips"></div>
+        </div>
+        <div class="history-section">
+          <div class="history-label">最近の運動</div>
+          <div id="exerciseHistoryChips" class="history-chips"></div>
+        </div>
+      </div>
+      <div id="suggestionSection" class="history-section">
+        <div class="history-label">候補</div>
+        <div id="suggestionChips" class="history-chips"></div>
+      </div>
+    </div>
+
+    <div id="inputDateHint" class="input-date-hint"></div>
+    <div id="inputBar" class="input-bar">
+      <input id="input" type="text" placeholder="何を食べた、または運動しましたか?">
+      <button id="sendBtn" class="send-btn" aria-label="送信">➤</button>
+    </div>
+
+    <div id="onboarding" class="onboarding">
+      <div class="onboarding-card">
+        <h2>はじめに、プロフィールを入力してください</h2>
+        <p class="onboarding-sub">目標カロリーの自動計算に使います。一度入力すれば、以後は変更しない限り再入力は不要です。</p>
+        <label>性別
+          <select id="sexInput">
+            <option value="male">男性</option>
+            <option value="female">女性</option>
+          </select>
+        </label>
+        <label>年齢(歳) <input type="number" id="ageInput" min="1" step="1" placeholder="30"></label>
+        <label>身長(cm) <input type="number" id="heightInput" min="1" step="0.1" placeholder="170"></label>
+        <label>現在の体重(kg) <input type="number" id="weightInput" min="1" step="0.1" placeholder="65"></label>
+        <label>目標体重・1年後(kg) <input type="number" id="targetWeightInput" min="1" step="0.1" placeholder="60"></label>
+        <label>活動レベル
+          <select id="activityInput">
+            <option value="sedentary">座りがち</option>
+            <option value="light" selected>軽い運動(週1〜3回)</option>
+            <option value="moderate">ふつうの運動(週3〜5回)</option>
+            <option value="active">活発(週6〜7回)</option>
+            <option value="veryActive">非常に活発</option>
+          </select>
+        </label>
+        <div id="previewGoal" class="preview-goal"></div>
+        <button id="saveProfileBtn" class="save-btn">保存して始める</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
