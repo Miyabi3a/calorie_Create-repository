@@ -1244,8 +1244,8 @@ function renderHistoryPanel() {
 function applySuggestion(name, suffixLen) {
   const raw = inputEl.value;
   inputEl.value = raw.slice(0, raw.length - suffixLen) + name;
+  sendMessage();
   inputEl.focus();
-  renderSuggestions();
 }
 
 function renderSuggestions() {
