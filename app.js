@@ -125,7 +125,9 @@ function buildDictionary() {
 }
 const DICTIONARY = buildDictionary();
 
-// 入力中のテキストの末尾から、辞書のaliasが前方一致する最長の候補群を探す。
+// 入力中のテキストの末尾から、辞書のaliasに部分一致する最長の候補群を探す。
+// 「韓国風」のようにキーワードがalias/nameの先頭でなく途中にあるケースも拾えるよう、
+// 前方一致ではなく部分一致(includes)で判定する(送信確定時のparseMessageも同様に部分一致のため)。
 // normalize()は文字数を変えない1:1変換なので、正規化後の末尾N文字はraw文字列の末尾N文字と対応する
 // (呼び出し側はこの性質を使って、rawText.length - suffixLenで置き換え開始位置を求められる)。
 function computeLiveSuggestions(rawText, maxResults = 6) {
@@ -137,7 +139,7 @@ function computeLiveSuggestions(rawText, maxResults = 6) {
     const seen = new Set();
     const matches = [];
     for (const dictEntry of DICTIONARY) {
-      if (!dictEntry.normAlias.startsWith(suffix)) continue;
+      if (!dictEntry.normAlias.includes(suffix)) continue;
       if (seen.has(dictEntry.entry.name)) continue;
       seen.add(dictEntry.entry.name);
       matches.push(dictEntry);
