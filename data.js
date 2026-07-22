@@ -8642,6 +8642,130 @@ const FOODS = [
   { name: 'ゼッテリア ハッシュポテト', aliases: ['ゼッテリアハッシュポテト'], unit: '個', kcal: 178, protein: 1.2, carbs: 14.6, fat: 12.7 },
   { name: 'ゼッテリア チキンからあげっと(3個)', aliases: ['からあげっと', 'チキンからあげ'], unit: '人前', kcal: 212, protein: 5.9, carbs: 10.9, fat: 16.1 },
   { name: 'ゼッテリア チーズスティック', aliases: ['ゼッテリアチーズスティック'], unit: '個', kcal: 167, protein: 7.2, carbs: 10.4, fat: 10.8 },
+
+  // ── スシロー(公式カロリー実測値、PFCは同種ネタからの推定値) ──
+  { name: 'スシロー 生サーモン(2貫)', aliases: ['スシローサーモン', 'スシロー生サーモン', 'スシロー'], unit: '皿', kcal: 67, protein: 3.0, carbs: 9.3, fat: 2.0 }, // ※推定
+  { name: 'スシロー 厳選まぐろ赤身(2貫)', aliases: ['スシローまぐろ', 'スシロー赤身'], unit: '皿', kcal: 78, protein: 5.5, carbs: 12.8, fat: 0.5 }, // ※推定
+  { name: 'スシロー 活〆はまち(2貫)', aliases: ['スシローはまち'], unit: '皿', kcal: 99, protein: 5.0, carbs: 10.8, fat: 4.0 }, // ※推定
+  { name: 'スシロー いくら軍艦', aliases: ['スシローいくら'], unit: '皿', kcal: 97, protein: 4.5, carbs: 9.6, fat: 4.5 }, // ※推定
+  { name: 'スシロー えび(2貫)', aliases: ['スシローえび', 'スシロー海老'], unit: '皿', kcal: 72, protein: 5.5, carbs: 11.6, fat: 0.4 }, // ※推定
+  { name: 'スシロー たまご(2貫)', aliases: ['スシローたまご', 'スシロー卵'], unit: '皿', kcal: 122, protein: 3.5, carbs: 20.3, fat: 3.0 }, // ※推定
+  { name: 'スシロー いか(2貫)', aliases: ['スシローいか'], unit: '皿', kcal: 70, protein: 5.3, carbs: 11.5, fat: 0.3 }, // ※推定
+  { name: 'スシロー 活〆真鯛(2貫)', aliases: ['スシロー真鯛', 'スシロー鯛'], unit: '皿', kcal: 87, protein: 5.5, carbs: 12.9, fat: 1.5 }, // ※推定
+  { name: 'スシロー 生ハム(2貫)', aliases: ['スシロー生ハム'], unit: '皿', kcal: 106, protein: 5.0, carbs: 10.3, fat: 5.0 }, // ※推定
+  { name: 'スシロー 合鴨(2貫)', aliases: ['スシロー鴨'], unit: '皿', kcal: 108, protein: 5.5, carbs: 10.3, fat: 5.0 }, // ※推定
+  { name: 'スシロー えび天にぎり(2貫)', aliases: ['スシローえび天'], unit: '皿', kcal: 142, protein: 4.5, carbs: 16.4, fat: 6.5 }, // ※推定
+  { name: 'スシロー サーモンアボカド(2貫)', aliases: ['スシローサーモンアボカド'], unit: '皿', kcal: 140, protein: 3.5, carbs: 14.6, fat: 7.5 }, // ※推定
+  { name: 'スシロー 鉄火巻', aliases: ['スシロー鉄火巻', 'スシローねぎとろ巻'], unit: '皿', kcal: 169, protein: 5.5, carbs: 34.5, fat: 1.0 }, // ※推定
+  { name: 'スシロー こだわりハンバーグにぎり(2貫)', aliases: ['スシローハンバーグ'], unit: '皿', kcal: 138, protein: 5.0, carbs: 16.0, fat: 6.0 }, // ※推定
+  { name: 'スシロー 鯛白湯ラーメン', aliases: ['スシローラーメン'], unit: '杯', kcal: 249, protein: 13.0, carbs: 33.8, fat: 7.0 }, // ※推定
+  { name: 'スシロー きつねうどん', aliases: ['スシローうどん'], unit: '杯', kcal: 315, protein: 11.0, carbs: 54.3, fat: 6.0 }, // ※推定
+  { name: 'スシロー フライドポテト', aliases: ['スシローポテト'], unit: '皿', kcal: 186, protein: 2.5, carbs: 23.8, fat: 9.0 }, // ※推定
+
+  // ── くら寿司(公式カロリー実測値、PFCは同種ネタからの推定値) ──
+  { name: 'くら寿司 サーモン(2貫)', aliases: ['くら寿司サーモン', 'くらサーモン', 'くら寿司'], unit: '皿', kcal: 93, protein: 4.0, carbs: 11.4, fat: 3.5 }, // ※推定
+  { name: 'くら寿司 熟成まぐろ(2貫)', aliases: ['くら寿司まぐろ', 'くらまぐろ'], unit: '皿', kcal: 82, protein: 5.5, carbs: 13.9, fat: 0.5 }, // ※推定
+  { name: 'くら寿司 はまち(2貫)', aliases: ['くら寿司はまち'], unit: '皿', kcal: 118, protein: 5.0, carbs: 12.1, fat: 5.5 }, // ※推定
+  { name: 'くら寿司 いくら', aliases: ['くら寿司いくら', 'くらいくら'], unit: '皿', kcal: 93, protein: 4.5, carbs: 9.8, fat: 4.0 }, // ※推定
+  { name: 'くら寿司 えび(2貫)', aliases: ['くら寿司えび'], unit: '皿', kcal: 74, protein: 5.5, carbs: 12.3, fat: 0.3 }, // ※推定
+  { name: 'くら寿司 たまご焼き(2貫)', aliases: ['くら寿司たまご'], unit: '皿', kcal: 114, protein: 3.5, carbs: 18.3, fat: 3.0 }, // ※推定
+  { name: 'くら寿司 いか(2貫)', aliases: ['くら寿司いか'], unit: '皿', kcal: 73, protein: 5.3, carbs: 12.3, fat: 0.3 }, // ※推定
+  { name: 'くら寿司 うに入り海鮮軍艦', aliases: ['くら寿司うに', 'くらうに'], unit: '皿', kcal: 89, protein: 3.8, carbs: 9.9, fat: 3.8 }, // ※推定
+  { name: 'くら寿司 ねぎまぐろ(2貫)', aliases: ['くら寿司ねぎとろ', 'くらねぎとろ'], unit: '皿', kcal: 99, protein: 4.5, carbs: 10.1, fat: 4.5 }, // ※推定
+  { name: 'くら寿司 ハンバーグ(2貫)', aliases: ['くら寿司ハンバーグ'], unit: '皿', kcal: 111, protein: 4.8, carbs: 11.7, fat: 5.0 }, // ※推定
+  { name: 'くら寿司 鉄火巻', aliases: ['くら寿司鉄火巻'], unit: '皿', kcal: 136, protein: 5.0, carbs: 26.8, fat: 1.0 }, // ※推定
+  { name: 'くら寿司 あぶりチーズサーモン(2貫)', aliases: ['くらあぶりチーズサーモン'], unit: '皿', kcal: 120, protein: 4.2, carbs: 13.4, fat: 5.5 }, // ※推定
+  { name: 'くら寿司 とろサーモン(2貫)', aliases: ['くら寿司とろサーモン'], unit: '皿', kcal: 98, protein: 3.8, carbs: 10.6, fat: 4.5 }, // ※推定
+  { name: 'くら寿司 胡麻香る担々麺', aliases: ['くら寿司担々麺', 'くら担々麺'], unit: '杯', kcal: 423, protein: 16.0, carbs: 49.3, fat: 18.0 }, // ※推定
+  { name: 'くら寿司 釜玉うどん(くら)', aliases: ['くら寿司うどん'], unit: '杯', kcal: 281, protein: 10.0, carbs: 46.8, fat: 6.0 }, // ※推定
+  { name: 'くら寿司 くらポテト', aliases: ['くらポテト'], unit: '皿', kcal: 211, protein: 2.8, carbs: 27.5, fat: 10.0 }, // ※推定
+  { name: 'くら寿司 感動のぷりん', aliases: ['くら寿司プリン'], unit: '個', kcal: 197, protein: 5.0, carbs: 24.0, fat: 9.0 }, // ※推定
+
+  // ── はま寿司(公式カロリー実測値、PFCは同種ネタからの推定値) ──
+  { name: 'はま寿司 サーモン(2貫)', aliases: ['はま寿司サーモン', 'はまサーモン', 'はま寿司'], unit: '皿', kcal: 97, protein: 4.2, carbs: 11.1, fat: 4.0 }, // ※推定
+  { name: 'はま寿司 まぐろ(2貫)', aliases: ['はま寿司まぐろ'], unit: '皿', kcal: 83, protein: 5.5, carbs: 14.1, fat: 0.5 }, // ※推定
+  { name: 'はま寿司 活〆はまち(2貫)', aliases: ['はま寿司はまち'], unit: '皿', kcal: 103, protein: 5.0, carbs: 10.6, fat: 4.5 }, // ※推定
+  { name: 'はま寿司 いくら軍艦', aliases: ['はま寿司いくら'], unit: '皿', kcal: 48, protein: 2.5, carbs: 5.0, fat: 2.0 }, // ※推定
+  { name: 'はま寿司 えび(2貫)', aliases: ['はま寿司えび'], unit: '皿', kcal: 64, protein: 5.0, carbs: 10.3, fat: 0.3 }, // ※推定
+  { name: 'はま寿司 旨だしたまご(2貫)', aliases: ['はま寿司たまご'], unit: '皿', kcal: 125, protein: 3.5, carbs: 21.0, fat: 3.0 }, // ※推定
+  { name: 'はま寿司 いか(2貫)', aliases: ['はま寿司いか'], unit: '皿', kcal: 69, protein: 5.0, carbs: 11.6, fat: 0.3 }, // ※推定
+  { name: 'はま寿司 うに軍艦', aliases: ['はま寿司うに'], unit: '皿', kcal: 38, protein: 1.8, carbs: 3.7, fat: 1.8 }, // ※推定
+  { name: 'はま寿司 まぐろたたき軍艦', aliases: ['はま寿司ねぎとろ'], unit: '皿', kcal: 92, protein: 4.5, carbs: 10.6, fat: 3.5 }, // ※推定
+  { name: 'はま寿司 炙りハンバーグチーズマヨ(2貫)', aliases: ['はま寿司ハンバーグ'], unit: '皿', kcal: 149, protein: 5.0, carbs: 12.0, fat: 9.0 }, // ※推定
+  { name: 'はま寿司 牛カルビ(2貫)', aliases: ['はま寿司牛カルビ'], unit: '皿', kcal: 117, protein: 5.0, carbs: 9.6, fat: 6.5 }, // ※推定
+  { name: 'はま寿司 生ハム(2貫)', aliases: ['はま寿司生ハム'], unit: '皿', kcal: 90, protein: 4.5, carbs: 9.5, fat: 3.8 }, // ※推定
+  { name: 'はま寿司 きすの天ぷら', aliases: ['はま寿司天ぷら'], unit: '皿', kcal: 74, protein: 4.0, carbs: 7.8, fat: 3.0 }, // ※推定
+  { name: 'はま寿司 博多とんこつラーメン', aliases: ['はま寿司ラーメン'], unit: '杯', kcal: 347, protein: 14.0, carbs: 43.5, fat: 13.0 }, // ※推定
+  { name: 'はま寿司 鴨うどん つくね入り', aliases: ['はま寿司うどん'], unit: '杯', kcal: 351, protein: 13.0, carbs: 54.5, fat: 9.0 }, // ※推定
+  { name: 'はま寿司 カリカリポテト(明太マヨ)', aliases: ['はま寿司ポテト'], unit: '皿', kcal: 378, protein: 4.5, carbs: 40.5, fat: 22.0 }, // ※推定
+  { name: 'はま寿司 チョコとバニラのはまパルフェ', aliases: ['はまパルフェ'], unit: '個', kcal: 413, protein: 6.0, carbs: 56.8, fat: 18.0 }, // ※推定
+
+  // ── デニーズ(公式栄養成分一覧表、2021年3月15日更新版) ──
+  { name: 'デニーズ 生姜焼き膳', aliases: ['デニーズ生姜焼き', 'デニーズ'], unit: '食', kcal: 935, protein: 29.7, carbs: 93.8, fat: 46.2 },
+  { name: 'デニーズ 鶏の唐揚げ膳', aliases: ['デニーズ唐揚げ', 'から揚げ膳', 'デニーズから揚げ'], unit: '食', kcal: 771, protein: 31.2, carbs: 93.8, fat: 29.0 },
+  { name: 'デニーズ チキン南蛮膳', aliases: ['デニーズチキン南蛮', 'チキン南蛮定食デニーズ'], unit: '食', kcal: 836, protein: 32.0, carbs: 104.8, fat: 31.1 },
+  { name: 'デニーズ さばの味噌煮とヒレカツ膳', aliases: ['デニーズさばの味噌煮ヒレカツ', 'さばの味噌煮とヒレカツ定食'], unit: '食', kcal: 1001, protein: 34.7, carbs: 107.6, fat: 45.0 },
+  { name: 'デニーズ ハンバーグカレードリア', aliases: ['デニーズハンバーグカレードリア'], unit: '皿', kcal: 805, protein: 34.2, carbs: 85.0, fat: 35.2 },
+  { name: 'デニーズ サーロインステーキ(約160g)', aliases: ['デニーズサーロインステーキ', 'サーロインステーキ160g'], unit: '枚', kcal: 444, protein: 33.8, carbs: 8.2, fat: 29.0 },
+  { name: 'デニーズ All Beefハンバーグ～デミたま', aliases: ['デニーズオールビーフハンバーグ', 'オールビーフハンバーグデミたま'], unit: '個', kcal: 587, protein: 30.0, carbs: 21.6, fat: 41.9 },
+  { name: 'デニーズ 天然まぐろの漬け丼', aliases: ['デニーズまぐろ漬け丼', '天然まぐろの漬け丼みそ汁つき'], unit: '杯', kcal: 564, protein: 26.5, carbs: 101.9, fat: 3.2 },
+  { name: 'デニーズ パンケーキ(プレーン3枚)', aliases: ['デニーズパンケーキ', 'プレーンパンケーキ'], unit: '皿', kcal: 488, protein: 10.0, carbs: 86.6, fat: 11.4 },
+  { name: 'デニーズ オマール香る海老ドリア', aliases: ['デニーズ海老ドリア', 'オマール海老ドリア'], unit: '皿', kcal: 422, protein: 16.8, carbs: 59.2, fat: 12.1 },
+  { name: 'デニーズ All Beefのミートスパゲッティ', aliases: ['デニーズミートスパゲッティ', 'オールビーフミートスパゲッティ'], unit: '皿', kcal: 613, protein: 23.5, carbs: 83.3, fat: 21.5 },
+  { name: 'デニーズ 海老フライサンド', aliases: ['デニーズ海老フライサンド', '海老フライサンドイッチ'], unit: '皿', kcal: 1176, protein: 33.9, carbs: 151.9, fat: 47.7 },
+  { name: 'デニーズ フライドポテト', aliases: ['デニーズフライドポテト', 'デニーズポテト'], unit: '皿', kcal: 318, protein: 4.1, carbs: 33.7, fat: 18.4 },
+  { name: 'デニーズ カットステーキ(約130g)', aliases: ['デニーズカットステーキ', 'カットステーキ130g'], unit: '枚', kcal: 255, protein: 23.7, carbs: 11.3, fat: 12.8 },
+  { name: 'デニーズ コーンスープ', aliases: ['デニーズコーンスープ'], unit: '杯', kcal: 78, protein: 2.6, carbs: 10.6, fat: 3.0 },
+
+  // ── ドミノ・ピザ(公式カロリー情報一覧、Mサイズ・ハンドトス1ピース値。PFCは公式非公開のため類似ピザからの推定値) ──
+  { name: 'ドミノ・ピザ マルゲリータ(M)', aliases: ['ドミノマルゲリータ', 'ドミノピザマルゲリータ', 'ドミノピザ'], unit: 'M', kcal: 138, protein: 6.2, carbs: 17.3, fat: 4.8 }, // ※推定
+  { name: 'ドミノ・ピザ ドミノ・デラックス(M)', aliases: ['ドミノデラックス', 'ドミノピザデラックス'], unit: 'M', kcal: 163, protein: 9.5, carbs: 15.8, fat: 7.0 }, // ※推定
+  { name: 'ドミノ・ピザ ジェノベーゼ(M)', aliases: ['ドミノジェノベーゼ', 'ドミノピザジェノベーゼ'], unit: 'M', kcal: 165, protein: 7.4, carbs: 20.6, fat: 5.8 }, // ※推定
+  { name: 'ドミノ・ピザ トロピカル(M)', aliases: ['ドミノトロピカル', 'ドミノピザトロピカル'], unit: 'M', kcal: 143, protein: 6.4, carbs: 17.9, fat: 5.0 }, // ※推定
+  { name: 'ドミノ・ピザ ギガ・ミート(M)', aliases: ['ドミノギガミート', 'ギガミートピザ'], unit: 'M', kcal: 184, protein: 10.7, carbs: 17.8, fat: 7.9 }, // ※推定
+  { name: 'ドミノ・ピザ マヨじゃが(M)', aliases: ['ドミノマヨじゃが', 'ドミノピザマヨじゃが'], unit: 'M', kcal: 200, protein: 11.6, carbs: 19.4, fat: 8.6 }, // ※推定
+  { name: 'ドミノ・ピザ マヨシュリンプ(M)', aliases: ['ドミノマヨシュリンプ'], unit: 'M', kcal: 166, protein: 9.6, carbs: 16.1, fat: 7.1 }, // ※推定
+  { name: 'ドミノ・ピザ クワトロ・ハッピー(M)', aliases: ['ドミノクワトロハッピー'], unit: 'M', kcal: 148, protein: 8.6, carbs: 14.4, fat: 6.4 }, // ※推定
+  { name: 'ドミノ・ピザ オールスターミートBBQ(M)', aliases: ['ドミノオールスターミートBBQ', 'オールスターミートピザ'], unit: 'M', kcal: 184, protein: 10.7, carbs: 17.8, fat: 7.9 }, // ※推定
+  { name: 'ドミノ・ピザ ガーリック・マスター(M)', aliases: ['ドミノガーリックマスター'], unit: 'M', kcal: 160, protein: 9.3, carbs: 15.5, fat: 6.9 }, // ※推定
+  { name: 'ドミノ・ピザ スパイシー(M)', aliases: ['ドミノスパイシー', 'ドミノピザスパイシー'], unit: 'M', kcal: 164, protein: 9.5, carbs: 15.9, fat: 7.1 }, // ※推定
+  { name: 'ドミノ・ピザ ワールドチーズ(M)', aliases: ['ドミノワールドチーズ'], unit: 'M', kcal: 189, protein: 8.5, carbs: 23.6, fat: 6.6 }, // ※推定
+  { name: 'ドミノ・ピザ まろやかバターチキンカレー(M)', aliases: ['ドミノバターチキンカレー'], unit: 'M', kcal: 168, protein: 9.7, carbs: 16.3, fat: 7.2 }, // ※推定
+  { name: 'ドミノ・ピザ 夏のコク旨カレークワトロ(M)', aliases: ['ドミノカレークワトロ'], unit: 'M', kcal: 179, protein: 10.4, carbs: 17.4, fat: 7.7 }, // ※推定
+  { name: 'ドミノ・ピザ 夏野菜のさっぱりトマトカレー(M)', aliases: ['ドミノ夏野菜トマトカレー', '夏野菜のトマトカレーピザ'], unit: 'M', kcal: 162, protein: 7.3, carbs: 20.3, fat: 5.7 }, // ※推定
+
+  // ── ピザハット(公式「PHエネルギー(カロリー)表」、Mサイズ・ハンドトス1ピース値。PFCは公式非公開のため類似ピザからの推定値) ──
+  { name: 'ピザハット マルゲリータ(M)', aliases: ['ピザハットマルゲリータ', 'マルゲリータM', 'ピザハット'], unit: 'M', kcal: 140, protein: 6.3, carbs: 17.5, fat: 4.9 }, // ※推定
+  { name: 'ピザハット ペパロニクラシック(M)', aliases: ['ピザハットペパロニ', 'ペパロニクラシックM'], unit: 'M', kcal: 144, protein: 8.4, carbs: 14.0, fat: 6.2 }, // ※推定
+  { name: 'ピザハット シーフードミックス(M)', aliases: ['ピザハットシーフード', 'シーフードミックスピザ'], unit: 'M', kcal: 156, protein: 9.0, carbs: 15.1, fat: 6.7 }, // ※推定
+  { name: 'ピザハット 直火焼テリマヨチキン(M)', aliases: ['ピザハットテリマヨチキン', 'テリマヨチキンピザ'], unit: 'M', kcal: 181, protein: 10.5, carbs: 17.6, fat: 7.8 }, // ※推定
+  { name: 'ピザハット デラックス(M)', aliases: ['ピザハットデラックス', 'デラックスピザM'], unit: 'M', kcal: 153, protein: 8.9, carbs: 14.8, fat: 6.6 }, // ※推定
+  { name: 'ピザハット ハワイアン(M)', aliases: ['ピザハットハワイアン', 'ハワイアンピザM'], unit: 'M', kcal: 157, protein: 9.1, carbs: 15.2, fat: 6.8 }, // ※推定
+  { name: 'ピザハット スーパー・シュプリーム(M)', aliases: ['ピザハットスーパーシュプリーム', 'スーパーシュプリームピザ'], unit: 'M', kcal: 173, protein: 10.0, carbs: 16.8, fat: 7.4 }, // ※推定
+  { name: 'ピザハット とろける4種チーズのフォルマッジ(M)', aliases: ['ピザハット4種チーズ', 'フォルマッジピザ'], unit: 'M', kcal: 170, protein: 7.7, carbs: 21.3, fat: 6.0 }, // ※推定
+  { name: 'ピザハット 新・特うまプルコギ(M)', aliases: ['ピザハットプルコギ', '特うまプルコギピザ'], unit: 'M', kcal: 213, protein: 12.4, carbs: 20.7, fat: 9.2 }, // ※推定
+  { name: 'ピザハット ジューシー厚切イベリコ(M)', aliases: ['ピザハットイベリコ', '厚切りイベリコピザ'], unit: 'M', kcal: 183, protein: 10.6, carbs: 17.8, fat: 7.9 }, // ※推定
+  { name: 'ピザハット ガーリックミートグルメ(M)', aliases: ['ピザハットガーリックミート', 'ガーリックミートグルメピザ'], unit: 'M', kcal: 164, protein: 9.5, carbs: 15.9, fat: 7.1 }, // ※推定
+  { name: 'ピザハット たっぷりチーズ&チーズ(M)', aliases: ['ピザハットチーズアンドチーズ', 'ダブルチーズピザ'], unit: 'M', kcal: 188, protein: 8.5, carbs: 23.5, fat: 6.6 }, // ※推定
+  { name: 'ピザハット ペパロニ・シュプリーム(M)', aliases: ['ピザハットペパロニシュプリーム'], unit: 'M', kcal: 154, protein: 8.9, carbs: 14.9, fat: 6.6 }, // ※推定
+  { name: 'ピザハット 芳醇ベーコンマッシュルーム(M)', aliases: ['ピザハットベーコンマッシュルーム', 'ベーコンマッシュルームピザ'], unit: 'M', kcal: 144, protein: 8.4, carbs: 14.0, fat: 6.2 }, // ※推定
+
+  // ── やよい軒(公式栄養成分情報、2026年6月1日更新) ──
+  { name: 'やよい軒 しょうが焼定食', aliases: ['やよい軒しょうが焼き', 'しょうが焼き定食やよい軒', 'やよい軒'], unit: '食', kcal: 717, protein: 26.2, carbs: 72.9, fat: 37.1 },
+  { name: 'やよい軒 から揚げ定食', aliases: ['やよい軒唐揚げ', 'から揚げ定食やよい軒'], unit: '食', kcal: 844, protein: 39.7, carbs: 78.6, fat: 43.4 },
+  { name: 'やよい軒 チキン南蛮定食', aliases: ['やよい軒チキン南蛮'], unit: '食', kcal: 843, protein: 27.6, carbs: 100.7, fat: 37.7 },
+  { name: 'やよい軒 サバの塩焼定食', aliases: ['やよい軒サバ塩焼き', '鯖の塩焼き定食'], unit: '食', kcal: 686, protein: 32.9, carbs: 61.9, fat: 35.1 },
+  { name: 'やよい軒 サバの味噌煮定食', aliases: ['やよい軒サバ味噌煮'], unit: '食', kcal: 621, protein: 30.4, carbs: 71.4, fat: 24.9 },
+  { name: 'やよい軒 銀鮭の塩焼定食', aliases: ['やよい軒鮭定食', '銀鮭塩焼き定食'], unit: '食', kcal: 499, protein: 30.0, carbs: 62.9, fat: 16.8 },
+  { name: 'やよい軒 デミハンバーグ定食', aliases: ['やよい軒デミハンバーグ', 'デミグラスハンバーグ定食'], unit: '食', kcal: 740, protein: 31.7, carbs: 97.3, fat: 26.9 },
+  { name: 'やよい軒 味噌かつ煮定食', aliases: ['やよい軒味噌カツ', '味噌かつ煮定食'], unit: '食', kcal: 845, protein: 40.6, carbs: 100.2, fat: 33.2 },
+  { name: 'やよい軒 牛肉豆腐定食', aliases: ['やよい軒牛肉豆腐', '牛肉豆腐定食'], unit: '食', kcal: 741, protein: 28.2, carbs: 73.7, fat: 38.1 },
+  { name: 'やよい軒 うなぎまぶし定食', aliases: ['やよい軒うなぎ', 'うなぎまぶし'], unit: '食', kcal: 674, protein: 28.8, carbs: 98.7, fat: 19.3 },
+  { name: 'やよい軒 大分とり天定食', aliases: ['やよい軒とり天', '大分とり天'], unit: '食', kcal: 793, protein: 33.7, carbs: 84.9, fat: 37.0 },
+  { name: 'やよい軒 かつ丼', aliases: ['やよい軒かつ丼'], unit: '丼', kcal: 857, protein: 37.1, carbs: 119.8, fat: 27.0 },
+  { name: 'やよい軒 地鶏親子丼～阿波尾鶏～', aliases: ['やよい軒親子丼', '阿波尾鶏親子丼'], unit: '丼', kcal: 683, protein: 36.1, carbs: 107.1, fat: 13.8 },
+  { name: 'やよい軒 ネギまぐろ丼', aliases: ['やよい軒ねぎとろ丼', 'ネギトロ丼やよい軒'], unit: '丼', kcal: 520, protein: 30.4, carbs: 94.5, fat: 3.3 },
+  { name: 'やよい軒 から揚げ(5個)', aliases: ['やよい軒から揚げ単品', 'から揚げサイドやよい軒'], unit: '皿', kcal: 477, protein: 30.4, carbs: 15.5, fat: 33.5 },
 ];
 
 // 運動DB: met=METs値, defaultMin=時間指定がない場合に仮定する分数
