@@ -3501,8 +3501,8 @@ const FOODS = [
   // ── calorie.slism.jp「おかず・加工食品」12ページ目(鍋・韓国料理・惣菜中心) ──
   { name: 'スンドゥブチゲ', aliases: ['スンドゥブチゲ'], unit: '土鍋人前(552.8g)', kcal: 658, protein: 30, carbs: 20, fat: 45 },
   { name: 'ケイジャンチキン', aliases: ['ケイジャンチキン'], unit: '大1枚(294.7g)', kcal: 616, protein: 40, carbs: 15, fat: 40 },
-  { name: 'フェジョアーダ', aliases: ['フェジョアーダ'], unit: '皿(241.8g)', kcal: 588, protein: 30, carbs: 30, fat: 35 },
-  { name: 'タッカルビ', aliases: ['タッカルビ'], unit: '人前(450.2g)', kcal: 563, protein: 35, carbs: 35, fat: 30 },
+  { name: 'フェジョアーダ', aliases: ['フェジョアーダ', 'フェイジョアーダ'], unit: '皿(241.8g)', kcal: 588, protein: 30, carbs: 30, fat: 35 },
+  { name: 'タッカルビ', aliases: ['タッカルビ', 'ダッカルビ'], unit: '人前(450.2g)', kcal: 563, protein: 35, carbs: 35, fat: 30 },
   { name: 'ほうとう', aliases: ['ほうとう'], unit: '人分(615.2g)', kcal: 455, protein: 15, carbs: 70, fat: 10 },
   { name: 'エンチラーダ', aliases: ['エンチラーダ'], unit: '1個(244.7g)', kcal: 436, protein: 18, carbs: 40, fat: 20 },
   { name: 'かぼちゃのミルク煮', aliases: ['かぼちゃのミルク煮'], unit: '皿(447g)', kcal: 393, protein: 8, carbs: 60, fat: 12 },
@@ -3528,7 +3528,7 @@ const FOODS = [
   { name: '大根ステーキ', aliases: ['大根ステーキ'], unit: '1個(112.4g)', kcal: 126, protein: 3, carbs: 10, fat: 8 },
   { name: '白菜のクリーム煮', aliases: ['白菜のクリーム煮'], unit: '人分(242g)', kcal: 119, protein: 4, carbs: 10, fat: 8 },
   { name: '肉味噌', aliases: ['肉味噌'], unit: '皿(63.9g)', kcal: 116, protein: 8, carbs: 6, fat: 7 },
-  { name: 'チリコンカン', aliases: ['チリコンカン'], unit: '皿(106.2g)', kcal: 108, protein: 8, carbs: 10, fat: 5 },
+  { name: 'チリコンカン', aliases: ['チリコンカン', 'チリコンカルネ'], unit: '皿(106.2g)', kcal: 108, protein: 8, carbs: 10, fat: 5 },
   { name: 'ヤンニョムチキン', aliases: ['ヤンニョムチキン'], unit: '1個(38.5g)', kcal: 104, protein: 7, carbs: 5, fat: 6 },
   { name: 'とり天', aliases: ['とり天'], unit: '1個(44.3g)', kcal: 97, protein: 8, carbs: 5, fat: 5 },
   { name: 'かぼちゃの味噌汁', aliases: ['かぼちゃの味噌汁'], unit: '杯(253g)', kcal: 96, protein: 3, carbs: 15, fat: 2 },
@@ -7099,7 +7099,7 @@ const FOODS = [
   { name: '納豆定食', aliases: ['納豆定食'], unit: '定食1人前(505g)', kcal: 540, protein: 20, carbs: 82, fat: 12 },
   { name: 'プッタネスカ', aliases: ['プッタネスカ'], unit: '皿(426.4g)', kcal: 537, protein: 15, carbs: 72, fat: 18 },
   { name: '味噌カツ', aliases: ['味噌カツ'], unit: '皿(215.6g)', kcal: 526, protein: 22, carbs: 30, fat: 34 },
-  { name: 'キムチ鍋', aliases: ['キムチ鍋'], unit: '鍋1人前(802g)', kcal: 505, protein: 25, carbs: 30, fat: 30 },
+  { name: 'キムチ鍋', aliases: ['キムチ鍋', 'キムチチゲ'], unit: '鍋1人前(802g)', kcal: 505, protein: 25, carbs: 30, fat: 30 },
   { name: 'バター醤油パスタ', aliases: ['バター醤油パスタ'], unit: '皿(272.5g)', kcal: 491, protein: 12, carbs: 62, fat: 20 },
   { name: 'エビカツバーガー', aliases: ['エビカツバーガー'], unit: '1個(230g)', kcal: 485, protein: 16, carbs: 45, fat: 24 },
   { name: 'ネギラーメン', aliases: ['ネギラーメン'], unit: '杯(795.5g)', kcal: 461, protein: 18, carbs: 60, fat: 13 },
@@ -8766,6 +8766,50 @@ const FOODS = [
   { name: 'やよい軒 地鶏親子丼～阿波尾鶏～', aliases: ['やよい軒親子丼', '阿波尾鶏親子丼'], unit: '丼', kcal: 683, protein: 36.1, carbs: 107.1, fat: 13.8 },
   { name: 'やよい軒 ネギまぐろ丼', aliases: ['やよい軒ねぎとろ丼', 'ネギトロ丼やよい軒'], unit: '丼', kcal: 520, protein: 30.4, carbs: 94.5, fat: 3.3 },
   { name: 'やよい軒 から揚げ(5個)', aliases: ['やよい軒から揚げ単品', 'から揚げサイドやよい軒'], unit: '皿', kcal: 477, protein: 30.4, carbs: 15.5, fat: 33.5 },
+
+  // ── 世界の料理・韓国(複数の栄養計算サイトの値を参考に常識的な範囲へ収束) ──
+  { name: '海鮮チヂミ', aliases: ['海鮮チヂミ', '海鮮パジョン'], unit: '1枚(250g)', kcal: 380, protein: 16, carbs: 34, fat: 20 },
+  { name: 'コムタン', aliases: ['コムタン', 'コムタンスープ'], unit: '1人前(500g)', kcal: 280, protein: 22, carbs: 6, fat: 18 },
+  { name: '冷麺', aliases: ['冷麺', 'ネンミョン'], unit: '1人前(450g)', kcal: 460, protein: 14, carbs: 85, fat: 5 },
+  { name: 'ケジャン', aliases: ['ケジャン', 'カンジャンケジャン'], unit: '1人前(150g)', kcal: 146, protein: 15, carbs: 19, fat: 1 },
+  { name: 'ポッサム', aliases: ['ポッサム', '茹で豚キムチ巻き'], unit: '1人前(200g)', kcal: 600, protein: 26, carbs: 2, fat: 52 },
+  { name: 'カムジャタン', aliases: ['カムジャタン', '豚背骨煮込み'], unit: '1人前(550g)', kcal: 540, protein: 18, carbs: 31, fat: 36 },
+  { name: 'ユッケ', aliases: ['ユッケ', '牛肉のユッケ'], unit: '1人前(150g)', kcal: 320, protein: 24, carbs: 8, fat: 22 },
+  { name: 'ビビン麺', aliases: ['ビビン麺', 'ビビン冷麺'], unit: '1人前(350g)', kcal: 430, protein: 10, carbs: 85, fat: 4 },
+
+  // ── 世界の料理・東南アジア(複数の栄養計算サイトの値を参考に常識的な範囲へ収束) ──
+  { name: 'グリーンカレー', aliases: ['グリーンカレー', 'タイグリーンカレー', 'ゲーンキョウワーン'], unit: '1人前(450g)', kcal: 650, protein: 20, carbs: 55, fat: 38 },
+  { name: 'ブンチャー', aliases: ['ブンチャー', 'ベトナム風つけ麺'], unit: '1人前(400g)', kcal: 420, protein: 14, carbs: 48, fat: 18 },
+  { name: 'ミーゴレン', aliases: ['ミーゴレン', 'インドネシア風焼きそば'], unit: '1人前(300g)', kcal: 550, protein: 15, carbs: 75, fat: 20 },
+  { name: 'サテ', aliases: ['サテ', 'サテアヤム'], unit: '1人前(150g)', kcal: 350, protein: 25, carbs: 12, fat: 22 },
+  { name: 'ルンダン', aliases: ['ルンダン', '牛肉のルンダン', 'ビーフルンダン'], unit: '1人前(200g)', kcal: 400, protein: 24, carbs: 8, fat: 30 },
+  { name: 'ラクサ', aliases: ['ラクサ', 'ラクサスープ', 'カレーラクサ'], unit: '1人前(450g)', kcal: 550, protein: 18, carbs: 55, fat: 26 },
+  { name: 'カオソーイ', aliases: ['カオソーイ', 'タイ風カレーラーメン', 'カオソイ'], unit: '1人前(400g)', kcal: 620, protein: 22, carbs: 65, fat: 30 },
+  { name: 'カオパット', aliases: ['カオパット', 'タイ風チャーハン', 'カオパッド'], unit: '1人前(350g)', kcal: 550, protein: 16, carbs: 78, fat: 18 },
+  { name: 'マッサマンカレー', aliases: ['マッサマンカレー', 'タイ風マッサマンカレー'], unit: '1人前(400g)', kcal: 550, protein: 20, carbs: 40, fat: 32 },
+  { name: 'ナシレマ', aliases: ['ナシレマ', 'ナシレマッ', 'ナシレマク'], unit: '1人前(400g)', kcal: 650, protein: 20, carbs: 75, fat: 28 },
+  { name: 'コムタム', aliases: ['コムタム', 'ベトナム風焼き豚ご飯'], unit: '1人前(370g)', kcal: 630, protein: 32, carbs: 60, fat: 28 },
+  { name: 'バインセオ', aliases: ['バインセオ', 'ベトナム風お好み焼き'], unit: '1人前(200g)', kcal: 380, protein: 15, carbs: 35, fat: 19 },
+  { name: 'チャークイティオ', aliases: ['チャークイティオ', 'マレーシア風焼きビーフン', 'クイティオ炒め'], unit: '1皿(300g)', kcal: 510, protein: 22, carbs: 58, fat: 22 },
+
+  // ── 世界の料理・中東(複数の栄養計算サイトの値を参考に常識的な範囲へ収束) ──
+  { name: 'フムス', aliases: ['フムス', 'ホムス', 'ひよこ豆のディップ'], unit: '1皿(100g)', kcal: 180, protein: 6, carbs: 14, fat: 11 },
+  { name: 'ファラフェル', aliases: ['ファラフェル', 'ファラフェルボール'], unit: '4個(120g)', kcal: 230, protein: 9, carbs: 22, fat: 12 },
+  { name: 'シャワルマ', aliases: ['シャワルマ', 'シャワルマサンド', 'シャワルマラップ'], unit: '1人前(250g)', kcal: 480, protein: 28, carbs: 45, fat: 20 },
+  { name: 'シシケバブ', aliases: ['シシケバブ', 'シシカバブ', 'ラム串焼き'], unit: '3串(150g)', kcal: 330, protein: 28, carbs: 4, fat: 22 },
+  { name: 'ドネルケバブ', aliases: ['ドネルケバブ', 'ケバブサンド', 'ケバブラップ'], unit: '1人前(250g)', kcal: 580, protein: 24, carbs: 48, fat: 32 },
+  { name: 'タブーリ', aliases: ['タブーリ', 'タブレ', 'タッブーレ'], unit: '1皿(150g)', kcal: 150, protein: 4, carbs: 18, fat: 7 },
+  { name: 'バクラヴァ', aliases: ['バクラヴァ', 'バクラワ'], unit: '1切れ(60g)', kcal: 250, protein: 4, carbs: 28, fat: 14 },
+  { name: 'ドルマ', aliases: ['ドルマ', 'ぶどうの葉包み', 'ヤプラック・サルマス'], unit: '5個(150g)', kcal: 220, protein: 4, carbs: 30, fat: 9 },
+  { name: 'ザジキ', aliases: ['ザジキ', 'ヨーグルトきゅうりソース'], unit: '1皿(100g)', kcal: 60, protein: 3, carbs: 4, fat: 4 },
+  { name: 'ババガヌーシュ', aliases: ['ババガヌーシュ', '焼きなすのディップ'], unit: '1皿(100g)', kcal: 150, protein: 3, carbs: 10, fat: 11 },
+
+  // ── 世界の料理・中南米(複数の栄養計算サイトの値を参考に常識的な範囲へ収束) ──
+  { name: 'セビーチェ', aliases: ['セビーチェ', 'セビチェ', '魚介のレモンマリネ'], unit: '1皿(150g)', kcal: 140, protein: 16, carbs: 8, fat: 4 },
+  { name: 'タマレ', aliases: ['タマレ', 'タマル', 'トウモロコシの葉包み蒸し'], unit: '1個(150g)', kcal: 220, protein: 6, carbs: 22, fat: 12 },
+  { name: 'アレパ', aliases: ['アレパ', 'とうもろこしパン'], unit: '1個(150g)', kcal: 165, protein: 4, carbs: 36, fat: 1 },
+  { name: 'モーレ', aliases: ['モーレ', 'モレ', 'チキンモレ', 'モーレポブラーノ'], unit: '1人前(300g)', kcal: 450, protein: 30, carbs: 25, fat: 25 },
+  { name: 'ロモサルタード', aliases: ['ロモサルタード', 'ロモ・サルタード'], unit: '1皿(400g)', kcal: 600, protein: 32, carbs: 55, fat: 26 },
 ];
 
 // 運動DB: met=METs値, defaultMin=時間指定がない場合に仮定する分数
