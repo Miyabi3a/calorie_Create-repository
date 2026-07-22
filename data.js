@@ -8824,6 +8824,15 @@ const FOODS = [
   { name: '尾道ラーメン', aliases: ['尾道ラーメン'], unit: '杯(600g)', kcal: 520, protein: 20, carbs: 62, fat: 18 },
   { name: '札幌ラーメン', aliases: ['札幌ラーメン', '札幌味噌ラーメン'], unit: '杯(750g)', kcal: 650, protein: 24, carbs: 78, fat: 24 },
   { name: '旭川ラーメン', aliases: ['旭川ラーメン'], unit: '杯(650g)', kcal: 580, protein: 22, carbs: 68, fat: 22 },
+
+  // ── 博多天ぷら やまや(公式サイト・店舗メニューにカロリー/栄養成分の公開なし。
+  //    定食内容(ご飯・味噌汁・辛子明太子/高菜おかわり込み)から同種の天ぷら定食としての常識的な推定値) ──
+  { name: '博多天ぷら やまや やまみ定食', aliases: ['やまやのやまみ定食', 'やまや天ぷら定食', 'やまやのてんぷら'], unit: '食', kcal: 950, protein: 38, carbs: 95, fat: 42 }, // ※推定
+  { name: '博多天ぷら やまや 魚介天定食', aliases: ['やまやの魚介天定食', 'やまや魚天定食'], unit: '食', kcal: 880, protein: 32, carbs: 95, fat: 36 }, // ※推定
+  { name: '博多天ぷら やまや 肉天定食', aliases: ['やまやの肉天定食'], unit: '食', kcal: 980, protein: 42, carbs: 90, fat: 44 }, // ※推定
+  { name: '博多天ぷら やまや 海老天定食', aliases: ['やまやの海老天定食'], unit: '食', kcal: 800, protein: 28, carbs: 92, fat: 32 }, // ※推定
+  { name: '博多天ぷら やまや 野菜天定食', aliases: ['やまやの野菜天定食'], unit: '食', kcal: 620, protein: 14, carbs: 88, fat: 22 }, // ※推定
+  { name: '博多天ぷら やまや やまみ天丼', aliases: ['やまやのやまみ天丼', 'やまや天丼'], unit: '杯', kcal: 900, protein: 30, carbs: 110, fat: 32 }, // ※推定
 ];
 
 // 運動DB: met=METs値, defaultMin=時間指定がない場合に仮定する分数
