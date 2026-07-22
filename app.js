@@ -729,14 +729,16 @@ function getStatsSeries(period) {
         loggedDays++;
         for (const k in sums) sums[k] += stats[k];
       }
+      const avgBurn = loggedDays ? sums.burn / loggedDays : 0;
       points.push({
         label: `${monthStart.getMonth() + 1}月`,
         intake: loggedDays ? sums.intake / loggedDays : 0,
-        burn: loggedDays ? sums.burn / loggedDays : 0,
+        burn: avgBurn,
         protein: loggedDays ? sums.protein / loggedDays : 0,
         fat: loggedDays ? sums.fat / loggedDays : 0,
         carbs: loggedDays ? sums.carbs / loggedDays : 0,
         goal,
+        targetIntake: goal + avgBurn,
         loggedDays,
       });
     }
@@ -748,14 +750,16 @@ function getStatsSeries(period) {
     const d = new Date(now);
     d.setDate(now.getDate() - i);
     const stats = getDayLogStats(dateKey(d));
+    const burn = stats ? stats.burn : 0;
     points.push({
       label: period === 'week' ? STATS_DOW_LABELS[d.getDay()] : `${d.getDate()}`,
       intake: stats ? stats.intake : 0,
-      burn: stats ? stats.burn : 0,
+      burn,
       protein: stats ? stats.protein : 0,
       fat: stats ? stats.fat : 0,
       carbs: stats ? stats.carbs : 0,
       goal,
+      targetIntake: goal + burn,
       loggedDays: stats ? 1 : 0,
     });
   }
@@ -782,7 +786,7 @@ function renderStatsChart(points) {
   const padTop = 10;
   const padBottom = 20;
   const padSide = 6;
-  const maxVal = Math.max(...points.map((p) => Math.max(p.intake, p.burn, p.goal)), 100) * 1.1;
+  const maxVal = Math.max(...points.map((p) => Math.max(p.intake, p.burn, p.targetIntake)), 100) * 1.1;
   const stepX = points.length > 1 ? (W - padSide * 2) / (points.length - 1) : 0;
   const scaleY = (v) => H - padBottom - (v / maxVal) * (H - padTop - padBottom);
   const toPath = (key) => points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${padSide + i * stepX} ${scaleY(p[key]).toFixed(1)}`).join(' ');
@@ -794,7 +798,7 @@ function renderStatsChart(points) {
   }).join('');
 
   statsChartEl.innerHTML = `
-    <path d="${toPath('goal')}" fill="none" stroke="#c2c6cc" stroke-width="1.5" stroke-dasharray="4 3" />
+    <path d="${toPath('targetIntake')}" fill="none" stroke="#c2c6cc" stroke-width="1.5" stroke-dasharray="4 3" />
     <path d="${toPath('burn')}" fill="none" stroke="#e8a33d" stroke-width="2" />
     <path d="${toPath('intake')}" fill="none" stroke="#34a853" stroke-width="2.5" />
     ${labels}

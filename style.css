@@ -57,9 +57,11 @@ header {
 
 .menu-dropdown {
   display: none;
+  flex-direction: column;
   position: absolute;
   top: 46px;
   left: 12px;
+  min-width: 168px;
   background: #fff;
   border: 1px solid #e7e9ec;
   border-radius: 10px;
@@ -68,16 +70,23 @@ header {
   overflow: hidden;
 }
 
-.menu-dropdown.open { display: block; }
+.menu-dropdown.open { display: flex; }
 
 .menu-dropdown button {
+  display: block;
+  width: 100%;
   border: none;
   background: none;
   padding: 10px 16px;
   font-size: 13px;
+  text-align: left;
   white-space: nowrap;
   cursor: pointer;
   color: #1c1f24;
+}
+
+.menu-dropdown button + button {
+  border-top: 1px solid #f0f1f3;
 }
 
 .menu-dropdown button:hover { background: #f1f2f5; }
