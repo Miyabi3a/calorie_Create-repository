@@ -586,7 +586,9 @@ const statsBtn = document.getElementById('statsBtn');
 const statsScreenEl = document.getElementById('statsScreen');
 const statsCloseBtn = document.getElementById('statsCloseBtn');
 const statsTabEls = Array.from(document.querySelectorAll('.stats-tab'));
-const statsAchieveRateEl = document.getElementById('statsAchieveRate');
+const statsRateWeekEl = document.getElementById('statsRateWeek');
+const statsRateMonthEl = document.getElementById('statsRateMonth');
+const statsRateYearEl = document.getElementById('statsRateYear');
 const statsStreakEl = document.getElementById('statsStreak');
 const statsAvgIntakeEl = document.getElementById('statsAvgIntake');
 const statsChartEl = document.getElementById('statsChart');
@@ -827,16 +829,23 @@ function renderStatsPfc(points) {
   }).join('');
 }
 
+function fmtRate(rate) {
+  return rate === null ? '-' : `${rate}%`;
+}
+
 function renderStats() {
   const points = getStatsSeries(statsPeriod);
-  const rate = computeAchieveRate(points);
   const avgIntake = computeAvgIntake(points);
-  statsAchieveRateEl.textContent = rate === null ? '-' : `${rate}%`;
   statsAvgIntakeEl.textContent = avgIntake === null ? '-' : `${avgIntake}kcal`;
   statsStreakEl.textContent = `${computeStreak()}日`;
   statsTabEls.forEach((t) => t.classList.toggle('active', t.dataset.period === statsPeriod));
   renderStatsChart(points);
   renderStatsPfc(points);
+
+  // タブの選択に関わらず、週間/月間/年間それぞれの達成率を常時比較できるようにする。
+  statsRateWeekEl.textContent = fmtRate(computeAchieveRate(getStatsSeries('week')));
+  statsRateMonthEl.textContent = fmtRate(computeAchieveRate(getStatsSeries('month')));
+  statsRateYearEl.textContent = fmtRate(computeAchieveRate(getStatsSeries('year')));
 }
 
 function chip(label, value) {
