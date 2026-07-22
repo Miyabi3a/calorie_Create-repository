@@ -13,6 +13,7 @@
       <button id="dateTitle" class="date-title">今日 <span class="chev">▾</span></button>
       <div id="menuDropdown" class="menu-dropdown">
         <button id="editProfileBtn">プロフィールを編集</button>
+        <button id="statsBtn">記録のまとめ</button>
       </div>
     </header>
 
@@ -122,6 +123,45 @@
         </label>
         <div id="previewGoal" class="preview-goal"></div>
         <button id="saveProfileBtn" class="save-btn">保存して始める</button>
+      </div>
+    </div>
+
+    <div id="statsScreen" class="stats-screen">
+      <div class="stats-card">
+        <div class="stats-header">
+          <h2>記録のまとめ</h2>
+          <button id="statsCloseBtn" class="icon-btn" aria-label="閉じる">✕</button>
+        </div>
+        <div class="stats-tabs">
+          <button class="stats-tab" data-period="week">週間</button>
+          <button class="stats-tab" data-period="month">月間</button>
+          <button class="stats-tab" data-period="year">年間</button>
+        </div>
+        <div class="stats-summary-row">
+          <div class="stats-summary-item">
+            <div class="stats-summary-label">達成率</div>
+            <div class="stats-summary-value" id="statsAchieveRate">-</div>
+          </div>
+          <div class="stats-summary-item">
+            <div class="stats-summary-label">連続記録</div>
+            <div class="stats-summary-value" id="statsStreak">-</div>
+          </div>
+          <div class="stats-summary-item">
+            <div class="stats-summary-label">平均摂取</div>
+            <div class="stats-summary-value" id="statsAvgIntake">-</div>
+          </div>
+        </div>
+        <div class="stats-chart-title">カロリー推移</div>
+        <div class="stats-chart-wrap">
+          <svg id="statsChart" class="stats-chart" viewBox="0 0 320 140" preserveAspectRatio="none"></svg>
+        </div>
+        <div class="stats-legend">
+          <span class="stats-legend-item"><span class="stats-dot intake"></span>摂取</span>
+          <span class="stats-legend-item"><span class="stats-dot burn"></span>消費</span>
+          <span class="stats-legend-item"><span class="stats-dot goal"></span>目標</span>
+        </div>
+        <div class="stats-chart-title">PFCバランス(期間平均)</div>
+        <div id="statsPfcBars" class="stats-pfc-bars"></div>
       </div>
     </div>
   </div>

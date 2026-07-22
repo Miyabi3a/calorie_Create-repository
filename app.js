@@ -582,6 +582,17 @@ const pfcRingCarbsEl = document.getElementById('pfcRingCarbs');
 const pfcValueCarbsEl = document.getElementById('pfcValueCarbs');
 const PFC_RING_CIRCUMFERENCE = 2 * Math.PI * 18;
 
+const statsBtn = document.getElementById('statsBtn');
+const statsScreenEl = document.getElementById('statsScreen');
+const statsCloseBtn = document.getElementById('statsCloseBtn');
+const statsTabEls = Array.from(document.querySelectorAll('.stats-tab'));
+const statsAchieveRateEl = document.getElementById('statsAchieveRate');
+const statsStreakEl = document.getElementById('statsStreak');
+const statsAvgIntakeEl = document.getElementById('statsAvgIntake');
+const statsChartEl = document.getElementById('statsChart');
+const statsPfcBarsEl = document.getElementById('statsPfcBars');
+let statsPeriod = 'week';
+
 const onboardingEl = document.getElementById('onboarding');
 const sexInput = document.getElementById('sexInput');
 const ageInput = document.getElementById('ageInput');
@@ -667,6 +678,160 @@ function setPfcRing(ringEl, valueEl, actual, ideal) {
   ringEl.style.strokeDashoffset = `${PFC_RING_CIRCUMFERENCE * (1 - pct / 100)}`;
   ringEl.classList.toggle('over', ratio > 1);
   valueEl.textContent = `${actual} / ${ideal}g`;
+}
+
+// 指定日のログを集計する。記録が一件もない日はnull(=「未記録日」として達成率・平均から除外するため)。
+function getDayLogStats(key) {
+  const day = data.days[key];
+  if (!day || day.logs.length === 0) return null;
+  const allItems = day.logs.flatMap((l) => l.items);
+  const foodItems = allItems.filter((i) => i.type === 'food');
+  const intake = foodItems.reduce((s, i) => s + i.kcal, 0);
+  const burn = allItems.filter((i) => i.type === 'exercise').reduce((s, i) => s + i.kcal, 0);
+  const protein = foodItems.reduce((s, i) => s + (i.protein || 0), 0);
+  const fat = foodItems.reduce((s, i) => s + (i.fat || 0), 0);
+  const carbs = foodItems.reduce((s, i) => s + (i.carbs || 0), 0);
+  return { intake, burn, protein, fat, carbs };
+}
+
+// 今日から遡って連続で記録がある日数。今日はまだ記録していないだけかもしれないため、
+// 今日に記録がなければ昨日を起点にする(未記録の「今日」だけで連続記録が途切れて見えるのを防ぐ)。
+function computeStreak() {
+  const d = new Date();
+  if (!getDayLogStats(dateKey(d))) d.setDate(d.getDate() - 1);
+  let streak = 0;
+  while (getDayLogStats(dateKey(d))) {
+    streak++;
+    d.setDate(d.getDate() - 1);
+  }
+  return streak;
+}
+
+const STATS_DOW_LABELS = ['日', '月', '火', '水', '木', '金', '土'];
+
+// 週間/月間は日次、年間は月次(直近12ヶ月の1日あたり平均)でポイント列を作る。
+// goalは現在のプロフィールに基づく現在の目標値を過去日にも一律適用した近似値。
+function getStatsSeries(period) {
+  const goal = computeGoalKcal(data);
+  const now = new Date();
+  if (period === 'year') {
+    const points = [];
+    for (let i = 11; i >= 0; i--) {
+      const monthStart = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      const daysInMonth = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 0).getDate();
+      let sums = { intake: 0, burn: 0, protein: 0, fat: 0, carbs: 0 };
+      let loggedDays = 0;
+      for (let day = 1; day <= daysInMonth; day++) {
+        const d = new Date(monthStart.getFullYear(), monthStart.getMonth(), day);
+        if (d > now) continue;
+        const stats = getDayLogStats(dateKey(d));
+        if (!stats) continue;
+        loggedDays++;
+        for (const k in sums) sums[k] += stats[k];
+      }
+      points.push({
+        label: `${monthStart.getMonth() + 1}月`,
+        intake: loggedDays ? sums.intake / loggedDays : 0,
+        burn: loggedDays ? sums.burn / loggedDays : 0,
+        protein: loggedDays ? sums.protein / loggedDays : 0,
+        fat: loggedDays ? sums.fat / loggedDays : 0,
+        carbs: loggedDays ? sums.carbs / loggedDays : 0,
+        goal,
+        loggedDays,
+      });
+    }
+    return points;
+  }
+  const numDays = period === 'week' ? 7 : 30;
+  const points = [];
+  for (let i = numDays - 1; i >= 0; i--) {
+    const d = new Date(now);
+    d.setDate(now.getDate() - i);
+    const stats = getDayLogStats(dateKey(d));
+    points.push({
+      label: period === 'week' ? STATS_DOW_LABELS[d.getDay()] : `${d.getDate()}`,
+      intake: stats ? stats.intake : 0,
+      burn: stats ? stats.burn : 0,
+      protein: stats ? stats.protein : 0,
+      fat: stats ? stats.fat : 0,
+      carbs: stats ? stats.carbs : 0,
+      goal,
+      loggedDays: stats ? 1 : 0,
+    });
+  }
+  return points;
+}
+
+// 達成率=記録がある日のうち、摂取-消費が目標以内に収まっていた日の割合。
+function computeAchieveRate(points) {
+  const logged = points.filter((p) => p.loggedDays > 0);
+  if (logged.length === 0) return null;
+  const achieved = logged.filter((p) => p.intake - p.burn <= p.goal).length;
+  return Math.round((achieved / logged.length) * 100);
+}
+
+function computeAvgIntake(points) {
+  const logged = points.filter((p) => p.loggedDays > 0);
+  if (logged.length === 0) return null;
+  return Math.round(logged.reduce((s, p) => s + p.intake, 0) / logged.length);
+}
+
+function renderStatsChart(points) {
+  const W = 320;
+  const H = 140;
+  const padTop = 10;
+  const padBottom = 20;
+  const padSide = 6;
+  const maxVal = Math.max(...points.map((p) => Math.max(p.intake, p.burn, p.goal)), 100) * 1.1;
+  const stepX = points.length > 1 ? (W - padSide * 2) / (points.length - 1) : 0;
+  const scaleY = (v) => H - padBottom - (v / maxVal) * (H - padTop - padBottom);
+  const toPath = (key) => points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${padSide + i * stepX} ${scaleY(p[key]).toFixed(1)}`).join(' ');
+
+  const labelEvery = Math.max(1, Math.ceil(points.length / 6));
+  const labels = points.map((p, i) => {
+    if (i % labelEvery !== 0 && i !== points.length - 1) return '';
+    return `<text x="${padSide + i * stepX}" y="${H - 4}" font-size="8" fill="#8a8f98" text-anchor="middle">${p.label}</text>`;
+  }).join('');
+
+  statsChartEl.innerHTML = `
+    <path d="${toPath('goal')}" fill="none" stroke="#c2c6cc" stroke-width="1.5" stroke-dasharray="4 3" />
+    <path d="${toPath('burn')}" fill="none" stroke="#e8a33d" stroke-width="2" />
+    <path d="${toPath('intake')}" fill="none" stroke="#34a853" stroke-width="2.5" />
+    ${labels}
+  `;
+}
+
+function renderStatsPfc(points) {
+  const logged = points.filter((p) => p.loggedDays > 0);
+  const avg = (key) => (logged.length ? Math.round(logged.reduce((s, p) => s + p[key], 0) / logged.length) : 0);
+  const ideal = computeIdealPFC(computeGoalKcal(data));
+  const macros = [
+    { key: 'protein', label: 'たんぱく質', color: '#e0575b', ideal: ideal.proteinG },
+    { key: 'fat', label: '脂質', color: '#e8a33d', ideal: ideal.fatG },
+    { key: 'carbs', label: '炭水化物', color: '#3457b2', ideal: ideal.carbsG },
+  ];
+  statsPfcBarsEl.innerHTML = macros.map((m) => {
+    const actual = avg(m.key);
+    const pct = m.ideal > 0 ? Math.min(100, (actual / m.ideal) * 100) : 0;
+    return `
+      <div class="stats-pfc-row">
+        <div class="stats-pfc-row-label">${m.label}</div>
+        <div class="stats-pfc-row-track"><div class="stats-pfc-row-fill" style="width:${pct}%;background:${m.color}"></div></div>
+        <div class="stats-pfc-row-value">${actual} / ${m.ideal}g</div>
+      </div>`;
+  }).join('');
+}
+
+function renderStats() {
+  const points = getStatsSeries(statsPeriod);
+  const rate = computeAchieveRate(points);
+  const avgIntake = computeAvgIntake(points);
+  statsAchieveRateEl.textContent = rate === null ? '-' : `${rate}%`;
+  statsAvgIntakeEl.textContent = avgIntake === null ? '-' : `${avgIntake}kcal`;
+  statsStreakEl.textContent = `${computeStreak()}日`;
+  statsTabEls.forEach((t) => t.classList.toggle('active', t.dataset.period === statsPeriod));
+  renderStatsChart(points);
+  renderStatsPfc(points);
 }
 
 function chip(label, value) {
@@ -1317,6 +1482,23 @@ menuBtn.addEventListener('click', () => {
 editProfileBtn.addEventListener('click', () => {
   menuDropdown.classList.remove('open');
   openOnboarding();
+});
+
+statsBtn.addEventListener('click', () => {
+  menuDropdown.classList.remove('open');
+  statsScreenEl.classList.add('open');
+  renderStats();
+});
+
+statsCloseBtn.addEventListener('click', () => {
+  statsScreenEl.classList.remove('open');
+});
+
+statsTabEls.forEach((t) => {
+  t.addEventListener('click', () => {
+    statsPeriod = t.dataset.period;
+    renderStats();
+  });
 });
 
 function updatePreviewGoal() {
