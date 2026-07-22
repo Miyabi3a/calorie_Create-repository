@@ -8544,7 +8544,7 @@ const FOODS = [
   { name: 'おからバナナ蒸しパン', aliases: ['おからバナナ蒸しパン'], unit: '1個(37.5g)', kcal: 54, protein: 2, carbs: 8, fat: 1.5 },
 
   // ── ミスタードーナツ(公式サイト栄養成分PDF、2026年7月9日現在) ──
-  { name: 'ミスタードーナツ ポン・デ・リング', aliases: ['ポンデリング', 'ミスドポンデリング'], unit: '個', kcal: 219, protein: 1.2, carbs: 26.9, fat: 11.8 },
+  { name: 'ミスタードーナツ ポン・デ・リング', aliases: ['ポンデリング', 'ミスドポンデリング', 'ミスタードーナツ', 'ミスド'], unit: '個', kcal: 219, protein: 1.2, carbs: 26.9, fat: 11.8 },
   { name: 'ミスタードーナツ ポン・デ・黒糖', aliases: ['ポンデ黒糖'], unit: '個', kcal: 202, protein: 1.2, carbs: 22.4, fat: 11.9 },
   { name: 'ミスタードーナツ オールドファッション', aliases: ['オールドファッション', 'ミスドオールドファッション'], unit: '個', kcal: 281, protein: 3.4, carbs: 28.0, fat: 17.0 },
   { name: 'ミスタードーナツ チョコファッション', aliases: ['チョコファッション'], unit: '個', kcal: 318, protein: 3.7, carbs: 30.7, fat: 19.7 },
@@ -8561,7 +8561,7 @@ const FOODS = [
   { name: 'ミスタードーナツ エビグラタンパイ', aliases: ['エビグラタンパイ', 'エビパイ'], unit: '個', kcal: 236, protein: 5.5, carbs: 23.4, fat: 13.2 },
 
   // ── リンガーハット(公式サイト栄養成分PDF、2025年10月28日現在) ──
-  { name: 'リンガーハット 長崎ちゃんぽん', aliases: ['長崎ちゃんぽん', 'リンガーハットちゃんぽん'], unit: '杯', kcal: 611, protein: 24.3, carbs: 81.8, fat: 24.7 },
+  { name: 'リンガーハット 長崎ちゃんぽん', aliases: ['長崎ちゃんぽん', 'リンガーハットちゃんぽん', 'リンガーハット'], unit: '杯', kcal: 611, protein: 24.3, carbs: 81.8, fat: 24.7 },
   { name: 'リンガーハット 長崎ちゃんぽん 麺少なめ', aliases: ['ちゃんぽん麺少なめ', '長崎ちゃんぽん麺少なめ'], unit: '杯', kcal: 465, protein: 18.9, carbs: 49.7, fat: 24.0 },
   { name: 'リンガーハット 野菜たっぷりちゃんぽん', aliases: ['野菜たっぷりちゃんぽん', '野菜ちゃんぽん'], unit: '杯', kcal: 759, protein: 28.4, carbs: 92.0, fat: 35.7 },
   { name: 'リンガーハット ピリカラちゃんぽん', aliases: ['ピリカラちゃんぽん', '辛口ちゃんぽん'], unit: '杯', kcal: 656, protein: 25.4, carbs: 83.4, fat: 28.0 },
@@ -8579,7 +8579,7 @@ const FOODS = [
 
   // ── なか卯(公式サイト栄養成分一覧PDF、2022年4月21日更新版) ──
   { name: 'なか卯 親子丼(並盛)', aliases: ['おやこ丼', 'なか卯親子丼'], unit: '杯', kcal: 620, protein: 28.9, carbs: 94.9, fat: 12.1 },
-  { name: 'なか卯 和風牛丼(並盛)', aliases: ['なか卯牛丼', '牛丼並', '和風牛どん'], unit: '杯', kcal: 713, protein: 18.7, carbs: 95.2, fat: 26.2 },
+  { name: 'なか卯 和風牛丼(並盛)', aliases: ['なか卯牛丼', '牛丼並', '和風牛どん', 'なか卯'], unit: '杯', kcal: 713, protein: 18.7, carbs: 95.2, fat: 26.2 },
   { name: 'なか卯 カツ丼(並盛)', aliases: ['なか卯カツ丼', 'かつ丼'], unit: '杯', kcal: 820, protein: 29.9, carbs: 107.8, fat: 28.4 },
   { name: 'なか卯 牛とじ丼(並盛)', aliases: ['牛とじ丼並', '牛とじどん'], unit: '杯', kcal: 727, protein: 23.8, carbs: 97.1, fat: 25.2 },
   { name: 'なか卯 チーズ牛丼(並盛)', aliases: ['チーズ牛丼並', 'チーズ牛どん'], unit: '杯', kcal: 800, protein: 24.3, carbs: 98.7, fat: 31.4 },
@@ -8594,7 +8594,7 @@ const FOODS = [
   { name: 'なか卯 チキンカレー(並盛)', aliases: ['なか卯チキンカレー'], unit: '皿', kcal: 673, protein: 15.8, carbs: 107.5, fat: 17.7 },
 
   // ── はなまるうどん(公式サイトアレルギー・栄養成分PDF、2026年7月17日改定版) ──
-  { name: 'はなまるうどん かけうどん(中)', aliases: ['かけ', 'はなまるかけうどん'], unit: '杯', kcal: 573, protein: 10.9, carbs: 129.2, fat: 1.7 },
+  { name: 'はなまるうどん かけうどん(中)', aliases: ['かけ', 'はなまるかけうどん', 'はなまるうどん', 'はなまる'], unit: '杯', kcal: 573, protein: 10.9, carbs: 129.2, fat: 1.7 },
   { name: 'はなまるうどん きつねうどん(中)', aliases: ['はなまるきつねうどん'], unit: '杯', kcal: 686, protein: 16.1, carbs: 135.5, fat: 9.1 },
   { name: 'はなまるうどん 牛肉うどん(中)', aliases: ['はなまる牛肉うどん'], unit: '杯', kcal: 779, protein: 19.8, carbs: 137.1, fat: 18.3 },
   { name: 'はなまるうどん ざるうどん(中)', aliases: ['はなまるざるうどん'], unit: '杯', kcal: 600, protein: 10.8, carbs: 135.9, fat: 1.7 },
@@ -8610,7 +8610,7 @@ const FOODS = [
   { name: 'はなまるうどん ミニ牛肉ごはん', aliases: ['牛肉ごはん', 'ミニ牛丼'], unit: '杯', kcal: 455, protein: 12.4, carbs: 66.6, fat: 17.5 },
 
   // ── バーガーキング日本(公式サイト栄養成分PDF、2026年1月8日更新) ──
-  { name: 'バーガーキング ワッパー', aliases: ['BKワッパー', 'バーガーキングワッパー'], unit: '個', kcal: 672, protein: 28.2, carbs: 50.8, fat: 39.9 },
+  { name: 'バーガーキング ワッパー', aliases: ['BKワッパー', 'バーガーキングワッパー', 'バーガーキング', 'ワッパー'], unit: '個', kcal: 672, protein: 28.2, carbs: 50.8, fat: 39.9 },
   { name: 'バーガーキング ワッパーチーズ', aliases: ['ワッパチ', 'チーズワッパー'], unit: '個', kcal: 750, protein: 32.7, carbs: 51.4, fat: 46.3 },
   { name: 'バーガーキング ダブルワッパーチーズ', aliases: ['Wワッパーチーズ'], unit: '個', kcal: 985, protein: 51.2, carbs: 51.5, fat: 64.1 },
   { name: 'バーガーキング スパイシーワッパー', aliases: ['スパイシーワッパーBK'], unit: '個', kcal: 686, protein: 28.2, carbs: 54.1, fat: 40.0 },
@@ -8635,7 +8635,7 @@ const FOODS = [
   { name: 'ゼッテリア オレンジチキンバーガー', aliases: ['オレンジチキン'], unit: '個', kcal: 466, protein: 15.6, carbs: 43.8, fat: 25.4 },
   { name: 'ゼッテリア えびバーガー', aliases: ['エビバーガー'], unit: '個', kcal: 396, protein: 10.6, carbs: 40.2, fat: 21.2 },
   { name: 'ゼッテリア チーズバーガー', aliases: ['ロッテリアチーズバーガー'], unit: '個', kcal: 364, protein: 13.8, carbs: 31.7, fat: 20.3 },
-  { name: 'ゼッテリア ハンバーガー', aliases: ['ロッテリア', 'ロッテリアハンバーガー', 'ゼッテリアハンバーガー'], unit: '個', kcal: 313, protein: 10.6, carbs: 31.2, fat: 16.2 },
+  { name: 'ゼッテリア ハンバーガー', aliases: ['ロッテリア', 'ロッテリアハンバーガー', 'ゼッテリアハンバーガー', 'ゼッテリア'], unit: '個', kcal: 313, protein: 10.6, carbs: 31.2, fat: 16.2 },
   { name: 'ゼッテリア ロコモコチーズバーガー', aliases: ['ロコモコバーガー'], unit: '個', kcal: 489, protein: 19.7, carbs: 35.7, fat: 28.9 },
   { name: 'ゼッテリア てりやきチキンバーガー', aliases: ['てりやきチキン'], unit: '個', kcal: 471, protein: 15.9, carbs: 34.3, fat: 30.0 },
   { name: 'ゼッテリア フレンチフライポテトM', aliases: ['ゼッテリアポテトM'], unit: '個', kcal: 357, protein: 3.4, carbs: 36.8, fat: 22.3 },
