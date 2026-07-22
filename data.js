@@ -8810,6 +8810,20 @@ const FOODS = [
   { name: 'アレパ', aliases: ['アレパ', 'とうもろこしパン'], unit: '1個(150g)', kcal: 165, protein: 4, carbs: 36, fat: 1 },
   { name: 'モーレ', aliases: ['モーレ', 'モレ', 'チキンモレ', 'モーレポブラーノ'], unit: '1人前(300g)', kcal: 450, protein: 30, carbs: 25, fat: 25 },
   { name: 'ロモサルタード', aliases: ['ロモサルタード', 'ロモ・サルタード'], unit: '1皿(400g)', kcal: 600, protein: 32, carbs: 55, fat: 26 },
+
+  // ── ラーメン(ジャンル・ご当地。複数の栄養計算サイトの値を参考に常識的な範囲へ収束) ──
+  { name: '豚骨ラーメン', aliases: ['豚骨ラーメン', 'とんこつラーメン'], unit: '杯(650g)', kcal: 600, protein: 24, carbs: 65, fat: 26 },
+  { name: '博多ラーメン', aliases: ['博多ラーメン', '博多とんこつ'], unit: '杯(550g)', kcal: 550, protein: 22, carbs: 62, fat: 20 },
+  { name: '家系ラーメン', aliases: ['家系ラーメン', 'いえけいラーメン'], unit: '杯(750g)', kcal: 800, protein: 30, carbs: 85, fat: 34 },
+  { name: '二郎系ラーメン(小)', aliases: ['二郎系ラーメン', 'ラーメン二郎', 'ジロリアン'], unit: '杯(1000g)', kcal: 1600, protein: 55, carbs: 150, fat: 70 },
+  { name: '台湾ラーメン', aliases: ['台湾ラーメン', '台湾まぜそば'], unit: '杯(650g)', kcal: 550, protein: 22, carbs: 60, fat: 22 },
+  { name: '喜多方ラーメン', aliases: ['喜多方ラーメン'], unit: '杯(650g)', kcal: 480, protein: 20, carbs: 65, fat: 14 },
+  { name: '背脂ラーメン', aliases: ['背脂ラーメン', '背脂チャッチャ系'], unit: '杯(700g)', kcal: 650, protein: 22, carbs: 65, fat: 30 },
+  { name: '熊本ラーメン', aliases: ['熊本ラーメン', 'マー油ラーメン'], unit: '杯(650g)', kcal: 620, protein: 24, carbs: 63, fat: 28 },
+  { name: '和歌山ラーメン', aliases: ['和歌山ラーメン'], unit: '杯(550g)', kcal: 500, protein: 20, carbs: 60, fat: 16 },
+  { name: '尾道ラーメン', aliases: ['尾道ラーメン'], unit: '杯(600g)', kcal: 520, protein: 20, carbs: 62, fat: 18 },
+  { name: '札幌ラーメン', aliases: ['札幌ラーメン', '札幌味噌ラーメン'], unit: '杯(750g)', kcal: 650, protein: 24, carbs: 78, fat: 24 },
+  { name: '旭川ラーメン', aliases: ['旭川ラーメン'], unit: '杯(650g)', kcal: 580, protein: 22, carbs: 68, fat: 22 },
 ];
 
 // 運動DB: met=METs値, defaultMin=時間指定がない場合に仮定する分数
