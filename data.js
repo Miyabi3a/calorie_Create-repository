@@ -8941,6 +8941,87 @@ const FOODS = [
   { name: 'カフェ・ド・クリエ たまごサンド', aliases: ['クリエたまごサンド', 'クリエ卵サンド'], unit: '1食', kcal: 184, protein: 4.5, carbs: 16.4, fat: 11.1 },
   { name: 'カフェ・ド・クリエ スクランブルエッグサンド', aliases: ['クリエスクランブルエッグサンド'], unit: '1食', kcal: 438, protein: 14.4, carbs: 44.7, fat: 22.1 },
   { name: 'カフェ・ド・クリエ ハム&エッグトーストサンド', aliases: ['クリエハムエッグサンド'], unit: '1食', kcal: 510, protein: 15.4, carbs: 60.8, fat: 23.2 },
+
+  // ── ラーメン専門チェーン(8番らーめん・スガキヤは公式PFC完全、来来亭はkcalのみ公式でPFC推定、
+  //    一蘭は店舗の生麺版ではなく公式通販のカップ麺版の栄養成分) ──
+  { name: '8番らーめん 野菜らーめん(味噌)', aliases: ['8番らーめん味噌', '8番味噌ラーメン'], unit: '1人前', kcal: 652, protein: 21.4, carbs: 89.7, fat: 22.5 },
+  { name: '8番らーめん 野菜らーめん(醤油)', aliases: ['8番らーめん醤油', '8番醤油ラーメン', '8番らーめん'], unit: '1人前', kcal: 606, protein: 21.3, carbs: 86.1, fat: 18.7 },
+  { name: '8番らーめん 野菜らーめん(塩)', aliases: ['8番らーめん塩', '8番塩ラーメン'], unit: '1人前', kcal: 571, protein: 17.8, carbs: 81.6, fat: 18.7 },
+  { name: '8番らーめん あっさりらーめん', aliases: ['8番らーめんあっさり', '8番あっさりらーめん'], unit: '1人前', kcal: 458, protein: 16.6, carbs: 77.0, fat: 6.1 },
+  { name: '一蘭 とんこつ(カップ麺)', aliases: ['一蘭カップ麺', '一蘭とんこつカップ'], unit: '1食(138g)', kcal: 504, protein: 14.2, carbs: 66.5, fat: 20.1 },
+  { name: '来来亭 中華そば', aliases: ['来来亭中華そば', '来来亭ラーメン', '来来亭醤油ラーメン'], unit: '1杯', kcal: 650, protein: 26.0, carbs: 70.4, fat: 28.2 }, // ※PFCは推定(kcalは公式)
+  { name: 'スガキヤ ラーメン', aliases: ['スガキヤラーメン', 'すがきやラーメン'], unit: '1杯', kcal: 379, protein: 15.8, carbs: 67.5, fat: 5.2 },
+  { name: 'スガキヤ 特製ラーメン', aliases: ['スガキヤ特製ラーメン'], unit: '1杯', kcal: 510, protein: 26.1, carbs: 67.5, fat: 15.2 },
+  { name: 'スガキヤ 野菜ラーメン', aliases: ['スガキヤ野菜ラーメン'], unit: '1杯', kcal: 490, protein: 19.5, carbs: 82.2, fat: 10.0 },
+  { name: 'スガキヤ ワンタン麺', aliases: ['スガキヤワンタン麺'], unit: '1杯', kcal: 439, protein: 19.3, carbs: 79.1, fat: 5.0 },
+
+  // ── スイーツ専門チェーン(サーティワン・シャトレーゼ・銀座コージーコーナーは公式PFC完全、
+  //    不二家は日持ちする個包装菓子のみ公式データあり、ゴディバはkcal公式・PFC推定) ──
+  { name: 'サーティワン バニラ', aliases: ['サーティワンバニラ', '31アイスバニラ'], unit: 'レギュラーシングル', kcal: 221, protein: 3, carbs: 25, fat: 11 },
+  { name: 'サーティワン チョコレート', aliases: ['サーティワンチョコレート', '31アイスチョコレート'], unit: 'レギュラーシングル', kcal: 242, protein: 4, carbs: 31, fat: 13 },
+  { name: 'サーティワン チョコレートミント', aliases: ['サーティワンチョコレートミント', '31アイスチョコミント'], unit: 'レギュラーシングル', kcal: 242, protein: 3, carbs: 27, fat: 12 },
+  { name: 'サーティワン キャラメルリボン', aliases: ['サーティワンキャラメルリボン'], unit: 'レギュラーシングル', kcal: 236, protein: 3, carbs: 31, fat: 9 },
+  { name: 'サーティワン クッキーアンドクリーム', aliases: ['サーティワンクッキーアンドクリーム'], unit: 'レギュラーシングル', kcal: 265, protein: 3, carbs: 28, fat: 14 },
+  { name: 'シャトレーゼ うみたて卵のふんわり厚切りロール', aliases: ['シャトレーゼロールケーキ', 'シャトレーゼの厚切りロール'], unit: '1個', kcal: 257, protein: 5.8, carbs: 21.8, fat: 16.0 },
+  { name: 'シャトレーゼ シュガーコーン バニラ', aliases: ['シャトレーゼアイス', 'シャトレーゼシュガーコーン'], unit: '1個', kcal: 136, protein: 2.0, carbs: 20.0, fat: 5.5 },
+  { name: 'シャトレーゼ ふっくらシューアイス バニラ', aliases: ['シャトレーゼシューアイス'], unit: '1個', kcal: 113, protein: 2.3, carbs: 10.8, fat: 6.6 },
+  { name: 'シャトレーゼ デザートショコラボール バニラ', aliases: ['シャトレーゼショコラボール'], unit: '1個', kcal: 35, protein: 0.4, carbs: 3.1, fat: 2.3 },
+  { name: '不二家 カントリーマアム(バニラ)', aliases: ['カントリーマアムバニラ', 'カントリーマアム'], unit: '1枚(10g)', kcal: 48, protein: 0.5, carbs: 6.3, fat: 2.3 },
+  { name: '不二家 カントリーマアム(ココア)', aliases: ['カントリーマアムココア'], unit: '1枚(10g)', kcal: 48, protein: 0.5, carbs: 6.4, fat: 2.3 },
+  { name: '不二家 ミルキー', aliases: ['ミルキー(不二家)', '不二家ミルキー'], unit: '1粒(3.6g)', kcal: 15, protein: 0.1, carbs: 3.0, fat: 0.3 },
+  { name: '銀座コージーコーナー 銀座プリン', aliases: ['コージーコーナー銀座プリン', '銀座コージーコーナーのプリン'], unit: '1個', kcal: 171, protein: 5.7, carbs: 23.6, fat: 5.9 },
+  { name: '銀座コージーコーナー バターマドレーヌ', aliases: ['コージーコーナーマドレーヌ'], unit: '1個', kcal: 92, protein: 1.1, carbs: 9.7, fat: 5.5 },
+  { name: '銀座コージーコーナー 苺のショートケーキ', aliases: ['コージーコーナーショートケーキ', '銀座コージーコーナーのショートケーキ'], unit: '1個', kcal: 335, protein: 3.9, carbs: 25.3, fat: 24.4 },
+  { name: '銀座コージーコーナー ジャンボシュークリーム', aliases: ['コージーコーナーシュークリーム'], unit: '1個', kcal: 265, protein: 5.5, carbs: 22.8, fat: 16.7 },
+  { name: 'ゴディバ アイスコレクション ミルクチョコレート', aliases: ['ゴディバアイスミルクチョコレート', 'ゴディバアイス'], unit: '90mlカップ', kcal: 184, protein: 2.8, carbs: 22.1, fat: 9.2 }, // ※PFCは推定(kcalは公式)
+  { name: 'ゴディバ アイスコレクション ダークチョコレート', aliases: ['ゴディバアイスダークチョコレート'], unit: '90mlカップ', kcal: 201, protein: 3.0, carbs: 24.1, fat: 10.1 }, // ※PFCは推定(kcalは公式)
+  { name: 'ゴディバ アイスコレクション バニラチョコレート', aliases: ['ゴディバアイスバニラ'], unit: '90mlカップ', kcal: 223, protein: 3.3, carbs: 26.8, fat: 11.2 }, // ※PFCは推定(kcalは公式)
+
+  // ── ベーカリーチェーン(全店公式サイトの商品別栄養成分表示、公式PFC完全) ──
+  { name: 'VIE DE FRANCE クロワッサン', aliases: ['ヴィドフランスクロワッサン', 'VDFクロワッサン'], unit: '1個', kcal: 205, protein: 3.3, carbs: 20.3, fat: 12.3 },
+  { name: 'VIE DE FRANCE あんクロワッサン', aliases: ['ヴィドフランスあんクロワッサン'], unit: '1個', kcal: 298, protein: 5.6, carbs: 39.9, fat: 12.9 },
+  { name: 'VIE DE FRANCE こだわりのメロンパン', aliases: ['ヴィドフランスメロンパン'], unit: '1個', kcal: 323, protein: 6.6, carbs: 53.7, fat: 9.1 },
+  { name: 'VIE DE FRANCE 小倉あんぱん', aliases: ['ヴィドフランスあんぱん'], unit: '1個', kcal: 228, protein: 6.6, carbs: 43.3, fat: 3.2 },
+  { name: 'VIE DE FRANCE 本格ビーフカレーパン', aliases: ['ヴィドフランスカレーパン'], unit: '1個', kcal: 264, protein: 7.6, carbs: 30.4, fat: 12.4 },
+  { name: 'サンジェルマン クロワッサン', aliases: ['サンジェルマンのクロワッサン'], unit: '1個', kcal: 204, protein: 3.5, carbs: 20.9, fat: 11.7 },
+  { name: 'サンジェルマン きび糖のメロンパン', aliases: ['サンジェルマンメロンパン'], unit: '1個', kcal: 241, protein: 5.4, carbs: 38.9, fat: 7.2 },
+  { name: 'サンジェルマン 白桃クリームパン', aliases: ['サンジェルマンクリームパン'], unit: '1個', kcal: 242, protein: 4.6, carbs: 43.3, fat: 5.9 },
+  { name: 'サンジェルマン ロイヤルミルク', aliases: ['サンジェルマンロイヤルミルク'], unit: '1個', kcal: 400, protein: 7.2, carbs: 48.9, fat: 19.9 },
+  { name: 'サンジェルマン とろ～りチーズ', aliases: ['サンジェルマンチーズパン'], unit: '1個', kcal: 303, protein: 7.7, carbs: 24.2, fat: 19.7 },
+  { name: 'アンデルセン 発酵バターのクロワッサン', aliases: ['アンデルセンクロワッサン'], unit: '1個', kcal: 200, protein: 4.0, carbs: 20.1, fat: 11.3 },
+  { name: 'アンデルセン 小倉あんぱん', aliases: ['アンデルセンあんぱん'], unit: '1個', kcal: 236, protein: 6.4, carbs: 43.2, fat: 4.4 },
+  { name: 'アンデルセン ミルクフランス', aliases: ['アンデルセンミルクフランス'], unit: '1個', kcal: 349, protein: 5.9, carbs: 43, fat: 17.1 },
+  { name: 'アンデルセン カレーパン', aliases: ['アンデルセンのカレーパン'], unit: '1個', kcal: 267, protein: 6.2, carbs: 29.4, fat: 13.8 },
+  { name: 'アンデルセン バゲットハムチーズサンド', aliases: ['アンデルセンハムチーズサンド'], unit: '1個', kcal: 309, protein: 13.9, carbs: 29.2, fat: 14.4 },
+  { name: 'リトルマーメイド クロワッサン', aliases: ['リトルマーメイドのクロワッサン'], unit: '1個', kcal: 221, protein: 3.7, carbs: 20.3, fat: 13.6 },
+  { name: 'リトルマーメイド とびっきりメロンパン', aliases: ['リトルマーメイドメロンパン'], unit: '1個', kcal: 374, protein: 7, carbs: 51.8, fat: 15.4 },
+  { name: 'リトルマーメイド 塩パン', aliases: ['リトルマーメイドの塩パン'], unit: '1個', kcal: 200, protein: 5.0, carbs: 27.9, fat: 6.9 },
+  { name: 'リトルマーメイド 完熟トマトカレーパン', aliases: ['リトルマーメイドカレーパン'], unit: '1個', kcal: 292, protein: 5.1, carbs: 30.2, fat: 16.9 },
+  { name: 'リトルマーメイド 北海道あんぱん', aliases: ['リトルマーメイドあんぱん'], unit: '1個', kcal: 212, protein: 6.1, carbs: 39.6, fat: 3.4 },
+  { name: '神戸屋 クロワッサンプリュス', aliases: ['神戸屋クロワッサン'], unit: '1個', kcal: 252, protein: 3.8, carbs: 27.3, fat: 14.4 },
+  { name: '神戸屋 メロンパン', aliases: ['神戸屋のメロンパン'], unit: '1個', kcal: 358, protein: 6.9, carbs: 61.8, fat: 9.5 },
+  { name: '神戸屋 ゆたか', aliases: ['神戸屋クリームブレッド'], unit: '1枚', kcal: 249, protein: 4.6, carbs: 33.3, fat: 11.1 },
+  { name: '神戸屋 焼きビーフカレーパン', aliases: ['神戸屋カレーパン'], unit: '1個', kcal: 182, protein: 5.9, carbs: 28.6, fat: 5.2 },
+  { name: '神戸屋 イギリス', aliases: ['神戸屋食パン', '神戸屋イギリス食パン'], unit: '1枚', kcal: 133, protein: 4.6, carbs: 24.9, fat: 1.8 },
+
+  // ── 冷凍食品・レトルトメーカー(全社公式サイトの商品別栄養成分、公式PFC完全) ──
+  { name: 'テーブルマーク カトキチさぬきうどん', aliases: ['カトキチさぬきうどん', 'テーブルマークうどん'], unit: '1食(180g)', kcal: 247, protein: 5.6, carbs: 54.5, fat: 0.7 },
+  { name: 'テーブルマーク ごっつ旨いたこ焼', aliases: ['ごっつ旨いたこ焼', 'テーブルマークたこ焼き'], unit: '1個(20g)', kcal: 30, protein: 0.9, carbs: 4.3, fat: 1.0 },
+  { name: 'ハウス食品 バーモントカレー(ルウ、ご飯別)', aliases: ['バーモントカレー', 'ハウスバーモントカレー'], unit: '1皿分(ルウ約19g)', kcal: 100, protein: 1.2, carbs: 8.3, fat: 6.9 },
+  { name: 'エスビー ゴールデンカレー 中辛(ルウ、ご飯別)', aliases: ['ゴールデンカレー', 'エスビーゴールデンカレー'], unit: '1皿分(ルウ18g)', kcal: 87, protein: 1.1, carbs: 9.1, fat: 5.3 },
+  { name: 'エスビー ゴールデンカレー バリ辛(ルウ、ご飯別)', aliases: ['ゴールデンカレーバリ辛'], unit: '1皿分(ルウ18g)', kcal: 87, protein: 1.2, carbs: 9.0, fat: 5.3 },
+  { name: '永谷園 お茶づけ海苔', aliases: ['お茶づけ海苔', '永谷園お茶漬け海苔'], unit: '1袋(6g、ご飯別)', kcal: 15, protein: 0.5, carbs: 3.1, fat: 0 },
+  { name: '永谷園 しじみ70個分のちからみそ汁', aliases: ['しじみ70個分のちからみそ汁', '永谷園しじみ味噌汁'], unit: '1袋(8.1g)', kcal: 26, protein: 1.7, carbs: 3.6, fat: 0.5 },
+  { name: '永谷園 らくらくみそ汁(ねぎ)', aliases: ['永谷園らくらくみそ汁', 'らくらくみそ汁'], unit: '1袋(5.2g)', kcal: 15, protein: 1.3, carbs: 1.7, fat: 0.3 },
+  { name: '日清 完全メシ カレーメシ 欧風カレー', aliases: ['完全メシカレーメシ', 'カレーメシ完全メシ'], unit: '1食(119g)', kcal: 483, protein: 20.1, carbs: 70.3, fat: 15.0 },
+  { name: '日清 完全メシ ハヤシメシ デミグラス', aliases: ['完全メシハヤシメシ'], unit: '1食(119g)', kcal: 472, protein: 20.6, carbs: 71.9, fat: 13.0 },
+  { name: '日清 完全メシ UFO濃い濃い汁なし担々麺', aliases: ['完全メシUFO担々麺', '完全メシUFO'], unit: '1食(128g)', kcal: 485, protein: 19.4, carbs: 74.4, fat: 14.6 },
+  { name: '日清 完全メシ 冷凍かつ丼', aliases: ['完全メシかつ丼'], unit: '1食(360g)', kcal: 598, protein: 24.6, carbs: 91.4, fat: 14.9 },
+  { name: '日清 完全メシ 冷凍牛丼', aliases: ['完全メシ牛丼'], unit: '1食(355g)', kcal: 565, protein: 22.3, carbs: 84.0, fat: 14.9 },
+  { name: '日清 完全メシ 冷凍親子丼', aliases: ['完全メシ親子丼'], unit: '1食(375g)', kcal: 581, protein: 22.9, carbs: 84.2, fat: 17.0 },
+  { name: 'nosh オニオングリルハンバーグ', aliases: ['ナッシュオニオングリルハンバーグ', 'noshハンバーグ'], unit: '1食', kcal: 400, protein: 17.4, carbs: 23.8, fat: 27.0 },
+  { name: 'nosh たらフライの特製タルタルソース', aliases: ['ナッシュたらフライ', 'noshたらフライ'], unit: '1食', kcal: 418, protein: 19.0, carbs: 26.8, fat: 26.5 },
+  { name: 'nosh チキンのトマトチーズがけ', aliases: ['ナッシュチキントマトチーズ', 'noshチキントマトチーズ'], unit: '1食', kcal: 395, protein: 40.5, carbs: 24.7, fat: 16.6 },
 ];
 
 // 運動DB: met=METs値, defaultMin=時間指定がない場合に仮定する分数
