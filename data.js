@@ -8833,6 +8833,114 @@ const FOODS = [
   { name: '博多天ぷら やまや 海老天定食', aliases: ['やまやの海老天定食'], unit: '食', kcal: 800, protein: 28, carbs: 92, fat: 32 }, // ※推定
   { name: '博多天ぷら やまや 野菜天定食', aliases: ['やまやの野菜天定食'], unit: '食', kcal: 620, protein: 14, carbs: 88, fat: 22 }, // ※推定
   { name: '博多天ぷら やまや やまみ天丼', aliases: ['やまやのやまみ天丼', 'やまや天丼'], unit: '杯', kcal: 900, protein: 30, carbs: 110, fat: 32 }, // ※推定
+
+  // ── 鳥貴族(公式サイト アレルギー・栄養成分情報PDF、2026年6月更新分の公式PFC値) ──
+  { name: '鳥貴族 もも貴族焼 たれ', aliases: ['鳥貴族もも貴族焼たれ', 'もも貴族焼たれ'], unit: '1人前(2串)', kcal: 231, protein: 18.5, carbs: 6.5, fat: 15.2 },
+  { name: '鳥貴族 もも貴族焼 塩', aliases: ['鳥貴族もも貴族焼塩', 'もも貴族焼塩'], unit: '1人前(2串)', kcal: 208, protein: 17.9, carbs: 1.8, fat: 15.1 },
+  { name: '鳥貴族 むね貴族焼 たれ', aliases: ['鳥貴族むね貴族焼たれ', 'むね貴族焼'], unit: '1人前(2串)', kcal: 165, protein: 22.9, carbs: 6.0, fat: 6.3 },
+  { name: '鳥貴族 せせり(塩焼)', aliases: ['鳥貴族せせり', '鳥貴族のせせり塩'], unit: '1人前(2串)', kcal: 170, protein: 13.4, carbs: 0, fat: 13.0 },
+  { name: '鳥貴族 かわ塩', aliases: ['鳥貴族かわ塩', '鳥貴族の鶏皮串'], unit: '1人前(2串)', kcal: 356, protein: 11.0, carbs: 0, fat: 34.7 },
+  { name: '鳥貴族 手羽先塩', aliases: ['鳥貴族手羽先', '鳥貴族の手羽先'], unit: '1人前(2串)', kcal: 253, protein: 21.3, carbs: 0, fat: 19.8 },
+  { name: '鳥貴族 トリキの唐揚', aliases: ['トリキの唐揚', '鳥貴族の唐揚げ', '鳥貴族唐揚げ'], unit: '1皿', kcal: 322, protein: 39.1, carbs: 13.5, fat: 11.8 },
+  { name: '鳥貴族 チキン南蛮', aliases: ['鳥貴族チキン南蛮', '鳥貴族のチキン南蛮'], unit: '1皿', kcal: 488, protein: 19.9, carbs: 26.0, fat: 33.6 },
+  { name: '鳥貴族 鳥たれかつ丼', aliases: ['鳥貴族鳥たれかつ丼', '鳥たれかつ丼'], unit: '1杯(並盛)', kcal: 639, protein: 28.5, carbs: 113.4, fat: 7.2 },
+  { name: '鳥貴族 ご飯セット', aliases: ['鳥貴族ご飯セット'], unit: '1杯(並)', kcal: 511, protein: 15.9, carbs: 92.6, fat: 8.0 },
+
+  // ── 白木屋・笑笑(モンテローザ公式アレルギー情報ツールでkcal・塩分は公開されているが、
+  //    たんぱく質/脂質/炭水化物は非公開のためPFCは同種料理からの推定値) ──
+  { name: '白木屋 鶏もも串 たれ', aliases: ['白木屋鶏もも串たれ', '白木屋の鶏もも串'], unit: '1皿(2本)', kcal: 219, protein: 17, carbs: 6, fat: 14 }, // ※推定(kcalは公式、PFCは推定)
+  { name: '白木屋 鶏もも串 塩', aliases: ['白木屋鶏もも串塩'], unit: '1皿(2本)', kcal: 202, protein: 17, carbs: 1, fat: 14 }, // ※推定
+  { name: '白木屋 鶏皮串 たれ', aliases: ['白木屋鶏皮串', '白木屋の鶏皮串'], unit: '1皿(2本)', kcal: 365, protein: 10, carbs: 6, fat: 35 }, // ※推定
+  { name: '白木屋 砂肝串 たれ', aliases: ['白木屋砂肝串', '白木屋の砂肝串'], unit: '1皿(2本)', kcal: 83, protein: 12, carbs: 4, fat: 2 }, // ※推定
+  { name: '白木屋・笑笑 自家製若鶏の唐揚げ', aliases: ['白木屋唐揚げ', '笑笑唐揚げ', '白木屋の唐揚げ', '笑笑の唐揚げ'], unit: '1皿', kcal: 625, protein: 42, carbs: 30, fat: 35 }, // ※推定
+  { name: '白木屋・笑笑 シーザーサラダ', aliases: ['白木屋シーザーサラダ', '笑笑シーザーサラダ'], unit: '1皿', kcal: 174, protein: 5, carbs: 10, fat: 12 }, // ※推定
+  { name: '白木屋・笑笑 ポテトフライ', aliases: ['白木屋ポテトフライ', '笑笑ポテトフライ'], unit: '1皿', kcal: 383, protein: 4, carbs: 48, fat: 19 }, // ※推定
+  { name: '白木屋・笑笑 焼おにぎり', aliases: ['白木屋焼おにぎり', '笑笑焼おにぎり'], unit: '1個', kcal: 167, protein: 3, carbs: 36, fat: 1 }, // ※推定
+  { name: '白木屋・笑笑 お茶漬け(鮭)', aliases: ['白木屋お茶漬け', '笑笑お茶漬け', '白木屋の鮭茶漬け'], unit: '1杯', kcal: 207, protein: 10, carbs: 38, fat: 2 }, // ※推定
+  { name: '白木屋・笑笑 ご飯セット', aliases: ['白木屋ご飯セット', '笑笑ご飯セット'], unit: '1杯', kcal: 348, protein: 6, carbs: 77, fat: 1 }, // ※推定
+
+  // ── 弁当チェーン(各社公式サイトの店舗別・商品別栄養成分情報、公式PFC値) ──
+  { name: 'ほっともっと のり弁当', aliases: ['ほっともっとのり弁当', 'ほっともっとのり弁'], unit: '1個(ライス普通盛)', kcal: 770, protein: 22.5, carbs: 116.9, fat: 23.6 },
+  { name: 'ほっともっと 4コ入りから揚弁当', aliases: ['ほっともっとから揚げ弁当', 'ほっともっと唐揚げ弁当'], unit: '1個(ライス普通盛)', kcal: 702, protein: 30.2, carbs: 101.5, fat: 19.5 },
+  { name: 'ほっともっと チキン南蛮弁当', aliases: ['ほっともっとチキン南蛮弁当'], unit: '1個(ライス普通盛)', kcal: 859, protein: 25.5, carbs: 126.5, fat: 27.4 },
+  { name: 'ほっともっと ロースとんかつ弁当', aliases: ['ほっともっとロースとんかつ弁当', 'ほっともっとカツ弁当'], unit: '1個(ライス普通盛)', kcal: 825, protein: 26.1, carbs: 122.0, fat: 27.3 },
+  { name: 'ほっともっと しょうが焼き弁当', aliases: ['ほっともっとしょうが焼き弁当'], unit: '1個(ライス普通盛)', kcal: 701, protein: 23.7, carbs: 101.9, fat: 23.9 },
+  { name: 'ほっかほっか亭 のり弁当', aliases: ['ほっかほっか亭のり弁当', 'ほっかほっか亭のり弁'], unit: '1個', kcal: 677, protein: 20.7, carbs: 113.5, fat: 15.9 },
+  { name: 'ほっかほっか亭 唐揚弁当', aliases: ['ほっかほっか亭唐揚弁当', 'ほっかほっか亭から揚げ弁当'], unit: '1個(4コ)', kcal: 882, protein: 35.6, carbs: 110.4, fat: 32.8 },
+  { name: 'ほっかほっか亭 ロースかつ丼', aliases: ['ほっかほっか亭かつ丼', 'ほっかほっか亭ロースかつ丼'], unit: '1杯', kcal: 911, protein: 32.2, carbs: 119.2, fat: 34.1 },
+  { name: 'ほっかほっか亭 チキン南蛮弁当', aliases: ['ほっかほっか亭チキン南蛮弁当'], unit: '1個', kcal: 971, protein: 28.0, carbs: 133.9, fat: 35.3 },
+  { name: 'ほっかほっか亭 のりチキンかつ弁当', aliases: ['ほっかほっか亭のりチキンかつ弁当'], unit: '1個', kcal: 808, protein: 26.9, carbs: 125.9, fat: 22.5 },
+  { name: '本家かまどや のり弁当', aliases: ['本家かまどやのり弁当', 'かまどやのり弁当'], unit: '1個', kcal: 623, protein: 14.7, carbs: 104.3, fat: 15.0 },
+  { name: '本家かまどや ザ・幕の内', aliases: ['本家かまどやの幕の内', 'かまどや幕の内'], unit: '1個', kcal: 666, protein: 18.2, carbs: 102.3, fat: 19.2 },
+  { name: '本家かまどや ５ケ入りカラアゲ弁当', aliases: ['本家かまどやから揚げ弁当', 'かまどやカラアゲ弁当'], unit: '1個', kcal: 937, protein: 30.2, carbs: 112.5, fat: 37.1 },
+  { name: '本家かまどや シャケ弁当', aliases: ['本家かまどやシャケ弁当', 'かまどやシャケ弁当'], unit: '1個', kcal: 537, protein: 17.6, carbs: 81.3, fat: 14.3 },
+  { name: '本家かまどや チキン南蛮弁当', aliases: ['本家かまどやチキン南蛮弁当', 'かまどやチキン南蛮弁当'], unit: '1個', kcal: 920, protein: 25.2, carbs: 117.7, fat: 36.7 },
+  { name: 'オリジン弁当 タルタルのり弁当', aliases: ['オリジン弁当のり弁当', 'オリジンのり弁'], unit: '1個', kcal: 605, protein: 18.2, carbs: 98.9, fat: 13.6 },
+  { name: 'オリジン弁当 ジャンボ唐揚げ弁当', aliases: ['オリジン弁当唐揚げ弁当', 'オリジンのジャンボ唐揚げ弁当'], unit: '1個', kcal: 918, protein: 33.1, carbs: 107.9, fat: 40.1 },
+  { name: 'オリジン弁当 オリジン幕の内弁当', aliases: ['オリジン弁当幕の内弁当', 'オリジンの幕の内弁当'], unit: '1個', kcal: 587, protein: 16.4, carbs: 89.3, fat: 18.8 },
+  { name: 'オリジン弁当 銀鮭塩焼きのり弁当', aliases: ['オリジン弁当銀鮭のり弁当', 'オリジンの銀鮭のり弁'], unit: '1個', kcal: 523, protein: 20.6, carbs: 78.9, fat: 12.2 },
+
+  // ── 立ち食いそばチェーン(ゆで太郎は公式kcalのみでPFCは推定、
+  //    小諸そばは公式kcal/P/Fのみで炭水化物は非公開のためアトウォーター換算による推定) ──
+  { name: 'ゆで太郎 かけそば', aliases: ['ゆで太郎かけそば'], unit: '1杯(温)', kcal: 386, protein: 12, carbs: 79, fat: 3 }, // ※炭水化物・PFCは推定(kcalは公式)
+  { name: 'ゆで太郎 もりそば', aliases: ['ゆで太郎もり', 'ゆで太郎もりそば'], unit: '1杯(冷)', kcal: 373, protein: 11, carbs: 76, fat: 3 }, // ※PFCは推定(kcalは公式)
+  { name: 'ゆで太郎 ざるそば', aliases: ['ゆで太郎ざる', 'ゆで太郎ざるそば'], unit: '1杯(冷)', kcal: 385, protein: 12, carbs: 79, fat: 3 }, // ※PFCは推定(kcalは公式)
+  { name: 'ゆで太郎 野菜かきあげそば', aliases: ['ゆで太郎かきあげそば', 'ゆで太郎野菜かき揚げそば'], unit: '1杯(温)', kcal: 638, protein: 22, carbs: 105, fat: 14 }, // ※PFCは推定(kcalは公式)
+  { name: 'ゆで太郎 肉茄子そば', aliases: ['ゆで太郎肉茄子そば'], unit: '1杯(温)', kcal: 653, protein: 25, carbs: 103, fat: 16 }, // ※PFCは推定(kcalは公式)
+  { name: 'ゆで太郎 三海老天そば', aliases: ['ゆで太郎海老天そば', 'ゆで太郎三海老天そば'], unit: '1杯(温)', kcal: 572, protein: 20, carbs: 97, fat: 11 }, // ※PFCは推定(kcalは公式)
+  { name: '小諸そば かけそば', aliases: ['小諸そばかけそば'], unit: '1杯', kcal: 330, protein: 12.4, carbs: 65, fat: 2.2 }, // 炭水化物のみ推定(kcal・P・Fは公式)
+  { name: '小諸そば もりそば', aliases: ['小諸そばもりそば'], unit: '1杯', kcal: 300, protein: 11.0, carbs: 59, fat: 2.2 }, // 炭水化物のみ推定(kcal・P・Fは公式)
+  { name: '小諸そば かき揚げそば', aliases: ['小諸そばかき揚げそば'], unit: '1杯', kcal: 570, protein: 18.5, carbs: 106, fat: 8.2 }, // 炭水化物のみ推定(kcal・P・Fは公式)
+
+  // ── その他個別チェーン ──
+  { name: '大戸屋 チキンかあさん煮', aliases: ['大戸屋チキンかあさん煮', '大戸屋かあさん煮'], unit: '1食(白ご飯付)', kcal: 897, protein: 29.5, carbs: 110.0, fat: 32.2 },
+  { name: '大戸屋 鶏と野菜の黒酢あん', aliases: ['大戸屋黒酢あん', '大戸屋鶏と野菜の黒酢あん'], unit: '1食(白ご飯付)', kcal: 952, protein: 27.5, carbs: 123.3, fat: 33.5 },
+  { name: '大戸屋 豚肩ロース生姜焼き', aliases: ['大戸屋しょうが焼き', '大戸屋生姜焼き'], unit: '1食(白ご飯付)', kcal: 829, protein: 33.4, carbs: 86.1, fat: 34.5 },
+  { name: '日高屋 とんこつラーメン', aliases: ['日高屋とんこつラーメン'], unit: '1杯', kcal: 670, protein: 27, carbs: 87, fat: 21 }, // ※PFCは推定(kcalは公式)
+  { name: '日高屋 中華そば', aliases: ['日高屋中華そば'], unit: '1杯', kcal: 636, protein: 25, carbs: 83, fat: 20 }, // ※PFCは推定(kcalは公式)
+  { name: '日高屋 味噌ラーメン', aliases: ['日高屋味噌ラーメン'], unit: '1杯', kcal: 940, protein: 38, carbs: 122, fat: 30 }, // ※PFCは推定(kcalは公式)
+  { name: '日高屋 餃子', aliases: ['日高屋餃子'], unit: '1人前(6個)', kcal: 322, protein: 13, carbs: 32, fat: 15 }, // ※PFCは推定(kcalは公式)
+  { name: '日高屋 やきとり丼', aliases: ['日高屋やきとり丼'], unit: '1杯', kcal: 391, protein: 18, carbs: 55, fat: 10 }, // ※PFCは推定(kcalは公式)
+  { name: '日高屋 チャーハン', aliases: ['日高屋チャーハン'], unit: '1皿', kcal: 726, protein: 17, carbs: 95, fat: 25 }, // ※PFCは推定(kcalは公式)
+  { name: '資さんうどん 肉うどん', aliases: ['資さんうどん肉うどん', '資さん肉うどん'], unit: '1食(376g)', kcal: 516, protein: 17, carbs: 66, fat: 16 }, // 冷凍お取り寄せ版のパッケージ栄養成分(店舗の出来立て版とは異なる場合あり)
+  { name: '資さんうどん 肉ごぼ天うどん', aliases: ['資さんうどん肉ごぼ天うどん', '資さん肉ごぼ天うどん'], unit: '1食(436g)', kcal: 746, protein: 24.0, carbs: 79.4, fat: 43.8 }, // 冷凍お取り寄せ版
+  { name: '資さんうどん 丸天うどん', aliases: ['資さんうどん丸天うどん', '資さん丸天うどん'], unit: '1食(364g)', kcal: 367, protein: 15, carbs: 62, fat: 1 }, // 冷凍お取り寄せ版
+  { name: 'ゴーゴーカレー 中辛', aliases: ['ゴーゴーカレー', 'ゴーゴーカレー中辛'], unit: '1食(155g)', kcal: 208, protein: 7.8, carbs: 15.8, fat: 12.6 }, // 通販レトルト版のパッケージ栄養成分(店舗の実物カレーとは異なる場合あり)
+  { name: 'ゴーゴーカレー 甘口', aliases: ['ゴーゴーカレー甘口'], unit: '1食(110g)', kcal: 149, protein: 4.0, carbs: 13.2, fat: 9.0 }, // 通販レトルト版
+
+  // ── ハイボール(サントリー角ハイボール缶、公式栄養成分) ──
+  { name: 'ハイボール(缶)', aliases: ['ハイボール', '角ハイボール', '缶ハイボール', 'ウイスキーソーダ'], unit: '350ml缶', kcal: 168, protein: 0, carbs: 7.4, fat: 0 },
+  { name: 'ハイボール〈濃いめ〉(缶)', aliases: ['濃いめハイボール', 'ストロングハイボール', '角ハイボール濃いめ'], unit: '350ml缶', kcal: 210, protein: 0, carbs: 7.4, fat: 0 },
+
+  // ── カフェ・喫茶店チェーン(タリーズ・ベローチェ・カフェ・ド・クリエは公式PFC完全、
+  //    コメダ珈琲店はkcalのみ公式でPFCは推定) ──
+  { name: 'タリーズ カフェラテ(R)', aliases: ['タリーズカフェラテ'], unit: 'R', kcal: 134, protein: 6.6, carbs: 10.5, fat: 7.2 },
+  { name: 'タリーズ カフェアメリカーノ(R)', aliases: ['タリーズアメリカーノ'], unit: 'R', kcal: 12, protein: 0.7, carbs: 2.2, fat: 0.1 },
+  { name: 'タリーズ ドリップコーヒー(R)', aliases: ['タリーズドリップコーヒー', 'タリーズコーヒー'], unit: 'R', kcal: 13, protein: 0.7, carbs: 2.3, fat: 0 },
+  { name: 'タリーズ アイスコーヒー(R)', aliases: ['タリーズアイスコーヒー'], unit: 'R', kcal: 7, protein: 0.6, carbs: 1.5, fat: 0 },
+  { name: 'タリーズ クロックムッシュ', aliases: ['タリーズクロックムッシュ'], unit: '1個', kcal: 314, protein: 13.7, carbs: 31.5, fat: 14.8 },
+  { name: 'タリーズ ボールパークホットドッグ', aliases: ['タリーズホットドッグ'], unit: '1個', kcal: 307, protein: 10.5, carbs: 36.0, fat: 13.5 },
+  { name: 'タリーズ ピザ・クアトロフォルマッジ', aliases: ['タリーズピザ'], unit: '1個', kcal: 324, protein: 11.8, carbs: 44.6, fat: 11.2 },
+  { name: 'コメダ珈琲店 シロノワール', aliases: ['コメダシロノワール', 'コメダ珈琲シロノワール'], unit: '1皿', kcal: 933, protein: 16, carbs: 112, fat: 47 }, // ※PFCは推定(kcalは公式)
+  { name: 'コメダ珈琲店 ミニシロノワール', aliases: ['コメダミニシロノワール'], unit: '1皿', kcal: 422, protein: 7, carbs: 51, fat: 21 }, // ※PFCは推定(kcalは公式)
+  { name: 'コメダ珈琲店 モーニングセット', aliases: ['コメダモーニング', 'コメダモーニングセット'], unit: '1食', kcal: 275, protein: 10, carbs: 38, fat: 9 }, // ※PFCは推定(kcalは公式)
+  { name: 'コメダ珈琲店 ブレンドコーヒー', aliases: ['コメダブレンド', 'コメダコーヒー'], unit: '1杯', kcal: 6, protein: 0, carbs: 1, fat: 0 }, // ※PFCは推定(kcalは公式)
+  { name: 'コメダ珈琲店 ミックスサンド', aliases: ['コメダミックスサンド'], unit: '1皿', kcal: 862, protein: 26, carbs: 103, fat: 38 }, // ※PFCは推定(kcalは公式)
+  { name: 'ベローチェ ブレンドコーヒー(R)', aliases: ['ベローチェコーヒー', 'カフェベローチェ ブレンドコーヒー'], unit: 'R', kcal: 8, protein: 0.6, carbs: 1.5, fat: 0 },
+  { name: 'ベローチェ カフェオレ(R)', aliases: ['ベローチェカフェオレ'], unit: 'R', kcal: 52, protein: 2.9, carbs: 4.4, fat: 2.6 },
+  { name: 'ベローチェ カフェラテ(R)', aliases: ['ベローチェカフェラテ'], unit: 'R', kcal: 119, protein: 6.4, carbs: 9.8, fat: 6.0 },
+  { name: 'ベローチェ アイスコーヒー', aliases: ['ベローチェアイスコーヒー'], unit: '1杯', kcal: 7, protein: 0.5, carbs: 1.2, fat: 0 },
+  { name: 'ベローチェ 玉子サンド', aliases: ['ベローチェ卵サンド', 'ベローチェの玉子サンド'], unit: '1皿', kcal: 313, protein: 8.5, carbs: 29.3, fat: 17.9 },
+  { name: 'ベローチェ バジルチキンサンド', aliases: ['ベローチェチキンサンド'], unit: '1皿', kcal: 180, protein: 8.1, carbs: 15.2, fat: 9.6 },
+  { name: 'ベローチェ 焼きたてホットドッグ', aliases: ['ベローチェホットドッグ'], unit: '1個', kcal: 342, protein: 12.1, carbs: 34.3, fat: 16.8 },
+  { name: 'ベローチェ オリジナルビーフカレー', aliases: ['ベローチェカレー'], unit: '1皿', kcal: 603, protein: 14.5, carbs: 92.8, fat: 17.8 },
+  { name: 'カフェ・ド・クリエ ブレンドコーヒー(R)', aliases: ['クリエコーヒー', 'ド・クリエブレンドコーヒー'], unit: 'R', kcal: 5, protein: 0.3, carbs: 0.9, fat: 0 },
+  { name: 'カフェ・ド・クリエ カフェラテ(R)', aliases: ['クリエカフェラテ'], unit: 'R', kcal: 96, protein: 4.8, carbs: 7.4, fat: 5.2 },
+  { name: 'カフェ・ド・クリエ アイスコーヒー(R)', aliases: ['クリエアイスコーヒー'], unit: 'R', kcal: 8, protein: 0.4, carbs: 1.5, fat: 0 },
+  { name: 'カフェ・ド・クリエ アイスカフェラテ(R)', aliases: ['クリエアイスカフェラテ'], unit: 'R', kcal: 110, protein: 5.5, carbs: 8.3, fat: 6.0 },
+  { name: 'カフェ・ド・クリエ たまごサンド', aliases: ['クリエたまごサンド', 'クリエ卵サンド'], unit: '1食', kcal: 184, protein: 4.5, carbs: 16.4, fat: 11.1 },
+  { name: 'カフェ・ド・クリエ スクランブルエッグサンド', aliases: ['クリエスクランブルエッグサンド'], unit: '1食', kcal: 438, protein: 14.4, carbs: 44.7, fat: 22.1 },
+  { name: 'カフェ・ド・クリエ ハム&エッグトーストサンド', aliases: ['クリエハムエッグサンド'], unit: '1食', kcal: 510, protein: 15.4, carbs: 60.8, fat: 23.2 },
 ];
 
 // 運動DB: met=METs値, defaultMin=時間指定がない場合に仮定する分数
