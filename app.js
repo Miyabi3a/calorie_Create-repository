@@ -130,7 +130,14 @@ const DICTIONARY = buildDictionary();
 // 前方一致ではなく部分一致(includes)で判定する(送信確定時のparseMessageも同様に部分一致のため)。
 // normalize()は文字数を変えない1:1変換なので、正規化後の末尾N文字はraw文字列の末尾N文字と対応する
 // (呼び出し側はこの性質を使って、rawText.length - suffixLenで置き換え開始位置を求められる)。
-function computeLiveSuggestions(rawText, maxResults = 6) {
+//
+// 優先順位: ①aliasの先頭がsuffixと一致するもの(=その語を先頭から打っている自然なケース)を最優先、
+// ②それ以外(語の途中にsuffixが含まれるケース)を次点とし、各グループ内ではalias長が短い(=より的確な)
+// ものを優先する。以前は候補をmaxResults*3件集めた時点で走査を打ち切ってから並べ替えていたため、
+// 辞書順(alias長の降順)で先に見つかった無関係な長い候補に枠が埋まり、本来上位に来るべき短い/
+// 先頭一致の候補がそもそも収集されない不具合があった。今回は全件走査してから並べ替える。
+// maxResultsを指定しない場合は件数を制限せず、マッチした全候補を返す(表示側でスクロールさせる)。
+function computeLiveSuggestions(rawText, maxResults = null) {
   const norm = normalize(rawText);
   if (!norm) return { suffixLen: 0, matches: [] };
   const maxSuffixLen = Math.min(norm.length, 12);
@@ -139,15 +146,18 @@ function computeLiveSuggestions(rawText, maxResults = 6) {
     const seen = new Set();
     const matches = [];
     for (const dictEntry of DICTIONARY) {
-      if (!dictEntry.normAlias.includes(suffix)) continue;
+      const idx = dictEntry.normAlias.indexOf(suffix);
+      if (idx === -1) continue;
       if (seen.has(dictEntry.entry.name)) continue;
       seen.add(dictEntry.entry.name);
-      matches.push(dictEntry);
-      if (matches.length >= maxResults * 3) break;
+      matches.push({ ...dictEntry, isPrefixMatch: idx === 0 });
     }
     if (matches.length > 0) {
-      matches.sort((a, b) => a.normAlias.length - b.normAlias.length);
-      return { suffixLen: len, matches: matches.slice(0, maxResults) };
+      matches.sort((a, b) => {
+        if (a.isPrefixMatch !== b.isPrefixMatch) return a.isPrefixMatch ? -1 : 1;
+        return a.normAlias.length - b.normAlias.length;
+      });
+      return { suffixLen: len, matches: maxResults ? matches.slice(0, maxResults) : matches };
     }
   }
   return { suffixLen: 0, matches: [] };
@@ -1567,5 +1577,19 @@ saveProfileBtn.addEventListener('click', () => {
 
 if (!hasProfile(data)) {
   openOnboarding();
+}
+
+// スマホでソフトキーボードが開くと、100vh/100dvhベースの高さは変わらないまま
+// キーボードが画面下部に重なるため、入力欄が隠れることがある(特にiOS Safari)。
+// visualViewportの実サイズに.phoneの高さを合わせることで、入力欄を常に可視領域内に保つ。
+const phoneEl = document.querySelector('.phone');
+function syncPhoneHeightToViewport() {
+  if (!window.visualViewport) return;
+  phoneEl.style.height = window.visualViewport.height + 'px';
+}
+if (window.visualViewport) {
+  syncPhoneHeightToViewport();
+  window.visualViewport.addEventListener('resize', syncPhoneHeightToViewport);
+  window.visualViewport.addEventListener('scroll', syncPhoneHeightToViewport);
 }
 renderAll();
