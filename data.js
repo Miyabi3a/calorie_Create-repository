@@ -274,6 +274,30 @@ const FOODS = [
   { name: 'ファミリーマート ストロベリーフラッペ', aliases: ['ファミマストロベリーフラッペ'], unit: '個', kcal: 235, protein: 2.0, carbs: 44.3, fat: 6.1 },
   { name: 'ファミリーマート クッキー&バニラフラッペ', aliases: ['ファミマクッキーバニラフラッペ'], unit: '個', kcal: 278, protein: 5.3, carbs: 38.7, fat: 11.5 },
 
+  // ── コンビニのカット野菜・PBサラダ(公式サイトの商品ページより。ローソンの「1食分の野菜が摂れる
+  //    パリパリ麺のサラダ」は、ユーザー指摘の「1/2日分の野菜が入ったパリパリサラダ」の現行商品名) ──
+  { name: 'ローソン 1食分の野菜が摂れる パリパリ麺のサラダ', aliases: ['ローソンパリパリサラダ', 'パリパリ麺のサラダ', 'ローソン1/2日分の野菜パリパリサラダ'], unit: '1食', kcal: 292, protein: 8.9, carbs: 34.9, fat: 14.2 },
+  { name: 'ローソン 10品目の彩りサラダ', aliases: ['ローソン彩りサラダ'], unit: '1袋(90g)', kcal: 22, protein: 0.9, carbs: 4.3, fat: 0.1, kcalPer100g: 24, proteinPer100g: 1.0, carbsPer100g: 4.8, fatPer100g: 0.1 }, // ※100gあたり公式値から按分
+  { name: 'ローソン ミックスサラダ', aliases: ['ローソンミックスサラダ'], unit: '1袋(140g)', kcal: 29, protein: 1.5, carbs: 7.0, fat: 0.1, kcalPer100g: 21, proteinPer100g: 1.1, carbsPer100g: 5.0, fatPer100g: 0.1 }, // ※100gあたり公式値から按分
+  { name: 'ローソン コーンミックスサラダ', aliases: ['ローソンコーンミックスサラダ'], unit: '1袋(110g)', kcal: 42, protein: 1.8, carbs: 9.4, fat: 0.4, kcalPer100g: 38, proteinPer100g: 1.6, carbsPer100g: 8.5, fatPer100g: 0.4 }, // ※100gあたり公式値から按分
+  { name: 'セブンイレブン 岩手県産トマトとチーズのサラダ', aliases: ['セブントマトチーズサラダ'], unit: '1食', kcal: 127, protein: 1.6, carbs: 9.2, fat: 9.6 },
+  { name: 'セブンイレブン ハムとポテトのサラダ', aliases: ['セブンハムポテトサラダ'], unit: '1食', kcal: 150, protein: 6.1, carbs: 14.9, fat: 8.0 },
+  { name: 'セブンイレブン 蒸し鶏とシャキシャキ野菜のサラダ', aliases: ['セブン蒸し鶏サラダ'], unit: '1食', kcal: 196, protein: 12.0, carbs: 16.0, fat: 9.9 },
+  { name: 'セブンプレミアム コールスロー', aliases: ['セブンコールスロー'], unit: '1食', kcal: 45, protein: 1.9, carbs: 10.1, fat: 0.3 },
+  { name: 'セブンイレブン 1/3日分の野菜が摂れるサラダ', aliases: ['セブン1/3日分の野菜サラダ'], unit: '1食(ドレッシング別)', kcal: 30, protein: 1.6, carbs: 5.7, fat: 0.5 },
+  { name: 'セブンプレミアム 10品目のミックスサラダ', aliases: ['セブン10品目のミックスサラダ'], unit: '1食', kcal: 18, protein: 0.9, carbs: 4.5, fat: 0.1 },
+  { name: 'セブンイレブン ロメインレタスとクルトンのシーザーサラダ', aliases: ['セブンシーザーサラダ'], unit: '1食', kcal: 225, protein: 3.9, carbs: 9.1, fat: 19.7 },
+  { name: 'ファミリーマート 20品目のサラダ', aliases: ['ファミマ20品目のサラダ'], unit: '1食', kcal: 192, protein: 3.9, carbs: 19.6, fat: 11.8 },
+  { name: 'ファミリーマート シーズナルグリーンサラダ', aliases: ['ファミマグリーンサラダ'], unit: '1食', kcal: 43, protein: 1.3, carbs: 4.6, fat: 2.5 },
+  { name: 'ファミリーマート フレッシュ野菜サラダ', aliases: ['ファミマフレッシュ野菜サラダ'], unit: '1食(ドレッシング別)', kcal: 40, protein: 1.5, carbs: 7.6, fat: 0.9 },
+  { name: 'ファミリーマート 1/3日分の野菜サラダ', aliases: ['ファミマ1/3日分の野菜サラダ'], unit: '1食(ドレッシング別)', kcal: 67, protein: 6.0, carbs: 9.9, fat: 1.2 },
+  { name: 'ファミリーマート 3種のネバネバサラダ', aliases: ['ファミマネバネバサラダ'], unit: '1食', kcal: 57, protein: 2.6, carbs: 11.5, fat: 1.1 },
+  { name: 'ファミリーマート 野菜スティック(味噌マヨ)', aliases: ['ファミマ野菜スティック'], unit: '1食', kcal: 148, protein: 1.9, carbs: 8.0, fat: 12.5 },
+  { name: 'ファミリーマート パリパリ麺サラダ', aliases: ['ファミマパリパリ麺サラダ'], unit: '1食', kcal: 263, protein: 7.7, carbs: 26.3, fat: 15.0 },
+  { name: 'ファミリーマート サラダチキンのサラダ', aliases: ['ファミマサラダチキンサラダ'], unit: '1食', kcal: 67, protein: 11.1, carbs: 4.3, fat: 1.0 },
+  { name: 'ファミリーマート 黒胡椒チキンのサラダ', aliases: ['ファミマ黒胡椒チキンサラダ'], unit: '1食', kcal: 152, protein: 15.6, carbs: 6.4, fat: 7.5 },
+  { name: 'ファミリーマート 鶏むね肉とたまごのサラダ', aliases: ['ファミマ鶏むねたまごサラダ'], unit: '1食', kcal: 171, protein: 23.6, carbs: 3.5, fat: 7.4 },
+
   // CoCo壱番屋
   { name: 'CoCo壱番屋 ポークカレー', aliases: ['ココイチポークカレー'], unit: 'ライス300g', kcal: 701, protein: 11.0, carbs: 126.9, fat: 18.3 },
   { name: 'CoCo壱番屋 チーズカレー', aliases: ['ココイチチーズカレー'], unit: 'ライス300g', kcal: 896, protein: 23.9, carbs: 128.3, fat: 34.1 },
