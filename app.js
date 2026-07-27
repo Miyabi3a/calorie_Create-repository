@@ -125,38 +125,116 @@ function buildDictionary() {
 }
 const DICTIONARY = buildDictionary();
 
-// 入力中のテキストの末尾から、辞書のaliasに部分一致する最長の候補群を探す。
+// 半角/全角スペースをキーワードの区切りとみなして入力を分割する(「セブン サラダ」のように、
+// 1品目をブランド+カテゴリ等の複数語で絞り込みたいケース向け)。
+// 「と」等の助詞は「ハムとチーズのサンド」のように商品名自体に含まれることが多く
+// 区切りに使えないため対象外(区切りとして誤爆しない文字だけを対象にする)。
+// 読点(、,)はここでは分割しない。読点は「と」と同じ「品目の列挙」の区切りであり、
+// computeLiveSuggestions側で「直近の読点より前は確定済みとして無視する」処理を別途行う
+// (前の品目を次の候補探索のヒントにはしない。「たまご、サラダ」=「たまごとサラダ」であって
+// 「たまご由来のサラダ」という意味ではないため)。
+// 各語の開始位置(start)も保持し、採用した語群の先頭位置からsuffixLenを逆算できるようにする。
+const SUGGESTION_SEPARATOR_RE = /[ 　]/;
+function tokenizeForSuggestion(text, offset = 0) {
+  const tokens = [];
+  let start = 0;
+  for (let i = 0; i <= text.length; i++) {
+    const atEnd = i === text.length;
+    if (atEnd || SUGGESTION_SEPARATOR_RE.test(text[i])) {
+      if (i > start) tokens.push({ text: text.slice(start, i), start: start + offset });
+      start = i + 1;
+    }
+  }
+  return tokens;
+}
+
+// predicateを満たすdictEntryを全走査し、同じ料理/運動(entry.name)について複数のalias
+// (name自体を含む)が該当する場合は、そのうち最も「良い」もの1件だけを残す。
+// DICTIONARYはalias長の降順で並んでいるため、単純に「最初に見つかった方を残す」実装だと
+// 常に一番長いaliasが優先されてしまう(例:「サラダ」自体より先に「野菜サラダ」が見つかり、
+// 短く的確な「サラダ」というalias一致が隠れてしまう)。ここでは都度比較し、
+// 「keywordが先頭に来る(prefix一致)か」を優先し、次にalias長が短い方を優先して選び直す。
+function collectBestMatches(predicate, keyword) {
+  const bestByName = new Map();
+  for (const dictEntry of DICTIONARY) {
+    if (!predicate(dictEntry)) continue;
+    const isPrefixMatch = dictEntry.normAlias.indexOf(keyword) === 0;
+    const existing = bestByName.get(dictEntry.entry.name);
+    const better = !existing
+      || (isPrefixMatch && !existing.isPrefixMatch)
+      || (isPrefixMatch === existing.isPrefixMatch && dictEntry.normAlias.length < existing.normAlias.length);
+    if (better) bestByName.set(dictEntry.entry.name, { ...dictEntry, isPrefixMatch });
+  }
+  return Array.from(bestByName.values());
+}
+
+function rankSuggestionMatches(matches) {
+  matches.sort((a, b) => {
+    if (a.isPrefixMatch !== b.isPrefixMatch) return a.isPrefixMatch ? -1 : 1;
+    return a.normAlias.length - b.normAlias.length;
+  });
+  return matches;
+}
+
+// 入力中のテキストから、辞書のalias/nameに一致する候補群を探す。
 // 「韓国風」のようにキーワードがalias/nameの先頭でなく途中にあるケースも拾えるよう、
 // 前方一致ではなく部分一致(includes)で判定する(送信確定時のparseMessageも同様に部分一致のため)。
-// normalize()は文字数を変えない1:1変換なので、正規化後の末尾N文字はraw文字列の末尾N文字と対応する
-// (呼び出し側はこの性質を使って、rawText.length - suffixLenで置き換え開始位置を求められる)。
 //
-// 優先順位: ①aliasの先頭がsuffixと一致するもの(=その語を先頭から打っている自然なケース)を最優先、
-// ②それ以外(語の途中にsuffixが含まれるケース)を次点とし、各グループ内ではalias長が短い(=より的確な)
-// ものを優先する。以前は候補をmaxResults*3件集めた時点で走査を打ち切ってから並べ替えていたため、
-// 辞書順(alias長の降順)で先に見つかった無関係な長い候補に枠が埋まり、本来上位に来るべき短い/
+// 読点(、,)は「と」と同じ「品目の列挙」の区切りとみなす。「たまご、サラダ」は
+// 「たまごとサラダ」という意味であり、「たまご由来のサラダ」を探しているわけではないため、
+// 直近の読点より前の部分は完全に無視し(ヒントにも使わない)、それより後ろ(=今まさに
+// 入力中の1品目分)だけを候補探索の対象にする。
+//
+// その対象範囲の中で、スペース(半角/全角)区切りの複数語があれば、全語を含む(AND条件の)
+// 候補をまず探す(「セブン サラダ」でセブンのサラダを探す、といったケース向け)。
+// 見つからなければ最も古い(先頭の)語から順に条件を緩め、最終的に最後の1語だけで絞り込む
+// (=1語しか無い通常の単語入力時と同じ挙動になる)。最後の1語については、まだ単語の途中
+// まで打っている途中のケースも拾えるよう、末尾からの部分文字列(短い方から長い方へ)でも
+// 一致を試みる。
+//
+// 優先順位: ①alias中でキーワード(複数語の場合は最後の語)が先頭に来るもの(=その語を
+// 先頭から打っている自然なケース)を最優先、②それ以外(語の途中に含まれるケース)を次点とし、
+// 各グループ内ではalias長が短い(=より的確な)ものを優先する。
+// 以前は候補をmaxResults*3件集めた時点で走査を打ち切ってから並べ替えていたため、辞書順
+// (alias長の降順)で先に見つかった無関係な長い候補に枠が埋まり、本来上位に来るべき短い/
 // 先頭一致の候補がそもそも収集されない不具合があった。今回は全件走査してから並べ替える。
 // maxResultsを指定しない場合は件数を制限せず、マッチした全候補を返す(表示側でスクロールさせる)。
 function computeLiveSuggestions(rawText, maxResults = null) {
   const norm = normalize(rawText);
   if (!norm) return { suffixLen: 0, matches: [] };
-  const maxSuffixLen = Math.min(norm.length, 12);
-  for (let len = maxSuffixLen; len >= 1; len--) {
-    const suffix = norm.slice(norm.length - len);
-    const seen = new Set();
-    const matches = [];
-    for (const dictEntry of DICTIONARY) {
-      const idx = dictEntry.normAlias.indexOf(suffix);
-      if (idx === -1) continue;
-      if (seen.has(dictEntry.entry.name)) continue;
-      seen.add(dictEntry.entry.name);
-      matches.push({ ...dictEntry, isPrefixMatch: idx === 0 });
+
+  const lastSepIdx = Math.max(norm.lastIndexOf('、'), norm.lastIndexOf(','));
+  const segmentStart = lastSepIdx === -1 ? 0 : lastSepIdx + 1;
+  const segment = norm.slice(segmentStart);
+  if (!segment.trim()) return { suffixLen: 0, matches: [] };
+
+  const tokens = tokenizeForSuggestion(segment, segmentStart);
+
+  if (tokens.length > 1) {
+    for (let dropCount = 0; dropCount < tokens.length - 1; dropCount++) {
+      const active = tokens.slice(dropCount);
+      const keywords = active.map((t) => t.text);
+      const lastKeyword = keywords[keywords.length - 1];
+      const matches = collectBestMatches(
+        (dictEntry) => keywords.every((kw) => dictEntry.normAlias.includes(kw)),
+        lastKeyword
+      );
+      if (matches.length > 0) {
+        rankSuggestionMatches(matches);
+        const suffixLen = norm.length - active[0].start;
+        return { suffixLen, matches: maxResults ? matches.slice(0, maxResults) : matches };
+      }
     }
+  }
+
+  // normalize()は文字数を変えない1:1変換なので、正規化後の末尾N文字はraw文字列の末尾N文字と対応する
+  // (呼び出し側はこの性質を使って、rawText.length - suffixLenで置き換え開始位置を求められる)。
+  const maxSuffixLen = Math.min(segment.length, 12);
+  for (let len = maxSuffixLen; len >= 1; len--) {
+    const suffix = segment.slice(segment.length - len);
+    const matches = collectBestMatches((dictEntry) => dictEntry.normAlias.includes(suffix), suffix);
     if (matches.length > 0) {
-      matches.sort((a, b) => {
-        if (a.isPrefixMatch !== b.isPrefixMatch) return a.isPrefixMatch ? -1 : 1;
-        return a.normAlias.length - b.normAlias.length;
-      });
+      rankSuggestionMatches(matches);
       return { suffixLen: len, matches: maxResults ? matches.slice(0, maxResults) : matches };
     }
   }
@@ -1430,11 +1508,20 @@ function renderHistoryPanel() {
   renderHistoryChips(exerciseHistoryChipsEl, exerciseTexts);
 }
 
-// 入力中の内容から候補チップを表示する。末尾に一致する品目がなければ
-// (入力が空、または数量だけ打っている等)最近の履歴表示に戻す。
+// 候補チップを選んだ時点で置き換え対象より前に読点(、,)があれば、既に別の品目を
+// 打ち終えている=複数品目を入力中とみなし、送信はせず入力欄に反映するだけにする
+// (即送信すると、まだ打っていない残りの品目が入力される前に送られてしまうため)。
+// 読点が無い(単独の1品目だけを打っている)通常のケースは、これまで通り選択即送信のままにする。
 function applySuggestion(name, suffixLen) {
   const raw = inputEl.value;
-  inputEl.value = raw.slice(0, raw.length - suffixLen) + name;
+  const before = raw.slice(0, raw.length - suffixLen);
+  const hasEarlierItem = /[、,]/.test(before);
+  inputEl.value = before + name;
+  if (hasEarlierItem) {
+    inputEl.focus();
+    renderSuggestions();
+    return;
+  }
   sendMessage();
   inputEl.focus();
 }
