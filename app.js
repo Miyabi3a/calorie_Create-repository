@@ -324,39 +324,6 @@ function findFuzzyBest(working) {
   return best;
 }
 
-// findFuzzyBestが見つけたおおよその位置(anchorIdx〜anchorIdx+anchorLen)付近について、
-// 同じ種類(食品/運動)の候補をエントリごとに最良1件ずつ集め、距離の近い順に最大maxCandidates件返す。
-// ユーザーに選ばせるための候補一覧であり、1件に自動確定させないためのもの。
-function findFuzzyCandidates(working, category, anchorIdx, anchorLen, maxCandidates = 3) {
-  const bestPerEntry = new Map();
-  for (const dictEntry of DICTIONARY) {
-    if (dictEntry.type !== category) continue;
-    const alias = dictEntry.normAlias;
-    const maxDist = Math.min(2, Math.floor(alias.length / 4));
-    if (maxDist < 1) continue;
-    for (const len of [alias.length - 1, alias.length, alias.length + 1]) {
-      if (len < 2) continue;
-      const lenDiff = Math.abs(len - alias.length);
-      const lo = Math.max(0, anchorIdx - 2);
-      const hi = Math.min(working.length - len, anchorIdx + anchorLen + 2 - len);
-      for (let i = lo; i <= hi; i++) {
-        const window = working.slice(i, i + len);
-        if (!window.trim()) continue;
-        const dist = levenshtein(normalize(window), alias);
-        if (dist > maxDist) continue;
-        const key = dictEntry.entry.name;
-        const existing = bestPerEntry.get(key);
-        if (!existing || dist < existing.dist || (dist === existing.dist && lenDiff < existing.lenDiff)) {
-          bestPerEntry.set(key, { entry: dictEntry.entry, dist, lenDiff, idx: i });
-        }
-      }
-    }
-  }
-  const list = Array.from(bestPerEntry.values());
-  list.sort((a, b) => a.dist - b.dist || a.lenDiff - b.lenDiff || a.idx - b.idx);
-  return list.slice(0, maxCandidates);
-}
-
 // 「1/2人前」のような分数表記、「半分」「半人前」を優先的に解釈し、
 // それ以外は従来通り小数+単位(0.5人前 等)で判定する。
 function parseFoodQuantity(text, idx, end, limit) {
@@ -540,10 +507,8 @@ function parseMessage(text, weightKg) {
         best = { idx, matchLen: dictEntry.alias.length, type: dictEntry.type, entry: dictEntry.entry };
       }
     }
-    let isExact = true;
     if (!best) {
       best = findFuzzyBest(working);
-      isExact = false;
     }
     if (!best) break;
 
@@ -556,21 +521,10 @@ function parseMessage(text, weightKg) {
       const q = parseFoodQuantity(working, idx, end, limit);
       if (q) working = mask(working, q.matchStart, q.matchEnd);
 
-      if (!isExact) {
-        // 完全一致ではなくあいまい検索によるヒットのため、1件に確定せず候補として提示する。
-        const rawText = working.slice(idx, end);
-        const candidates = findFuzzyCandidates(working, 'food', idx, matchLen)
-          .map((c) => ({ name: c.entry.name }));
-        items.push({
-          type: 'pending',
-          category: 'food',
-          rawText,
-          quantity: q ? { num: q.num, counter: q.counter } : null,
-          candidates,
-        });
-      } else {
-        items.push(computeFoodItem(f, q ? { num: q.num, counter: q.counter } : null));
-      }
+      // 完全一致・あいまい一致のどちらでも、あいまい検索側が最有力とみなした候補(f)を
+      // そのまま確定して記録する。誤りがあっても各ログの✎編集から名前ごと手動で直せるため、
+      // 送信のたびに候補選択を挟まず即座に記録できることを優先する。
+      items.push(computeFoodItem(f, q ? { num: q.num, counter: q.counter } : null));
     } else {
       const e = entry;
       const bodyweight = weightKg || 60;
@@ -601,20 +555,8 @@ function parseMessage(text, weightKg) {
           working = mask(working, q.matchStart, q.matchEnd);
         }
 
-        if (!isExact) {
-          const rawText = working.slice(idx, end);
-          const candidates = findFuzzyCandidates(working, 'exercise', idx, matchLen)
-            .map((c) => ({ name: c.entry.name }));
-          items.push({
-            type: 'pending',
-            category: 'exercise',
-            rawText,
-            quantity: { minutes },
-            candidates,
-          });
-        } else {
-          items.push(computeExerciseMinutesItem(e, minutes, bodyweight));
-        }
+        // 食品と同様、完全一致・あいまい一致どちらでも最有力候補(e)をそのまま確定して記録する。
+        items.push(computeExerciseMinutesItem(e, minutes, bodyweight));
       }
     }
 
